@@ -1,0 +1,115 @@
+name: CI
+
+on:
+  push:
+    branches: [main, phase-3-complete]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Type check
+        run: npx tsc --noEmit
+
+      - name: Unit Tests
+        run: npm test
+
+      - name: Build
+        run: npm run build
+
+  lighthouse:
+    runs-on: ubuntu-latest
+    needs: build
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Start server
+        run: npm start &
+        env:
+          PORT: 3000
+
+      - name: Wait for server
+        run: npx wait-on http://localhost:3000
+
+      - name: Run Lighthouse
+        uses: treosh/lighthouse-ci-action@v11
+        with:
+          urls: |
+            http://localhost:3000
+          configPath: './lighthouserc.json'
+          uploadArtifacts: true
+          temporaryPublicStorage: true
+
+  security-headers:
+    runs-on: ubuntu-latest
+    needs: build
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Start server
+        run: npm start &
+        env:
+          PORT: 3000
+
+      - name: Wait for server
+        run: npx wait-on http://localhost:3000
+
+      - name: Check security headers
+        run: |
+          echo "Checking security headers..."
+          
+          HEADERS=$(curl -sI http://localhost:3000)
+          
+          echo "$HEADERS" | grep -i "x-frame-options" || echo "⚠️ Missing X-Frame-Options"
+          echo "$HEADERS" | grep -i "x-content-type-options" || echo "⚠️ Missing X-Content-Type-Options"
+          echo "$HEADERS" | grep -i "referrer-policy" || echo "⚠️ Missing Referrer-Policy"
+          echo "$HEADERS" | grep -i "content-security-policy" || echo "⚠️ Missing CSP"
+          
+          # Fail if critical headers are missing
+          echo "$HEADERS" | grep -qi "x-frame-options" || exit 1

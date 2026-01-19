@@ -1,0 +1,37 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - DATABASE_URL=postgresql://gogo_user:gogo_password@db:5432/gogo_db
+      - NODE_ENV=production
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+    networks:
+      - gogo-network
+
+  db:
+    image: postgres:15-alpine
+    restart: always
+    environment:
+      POSTGRES_USER: gogo_user
+      POSTGRES_PASSWORD: gogo_password
+      POSTGRES_DB: gogo_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    networks:
+      - gogo-network
+
+volumes:
+  db_data:
+
+networks:
+  gogo-network:
+    driver: bridge

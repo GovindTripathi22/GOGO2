@@ -1,0 +1,86 @@
+@import "tailwindcss";
+
+@theme {
+  /* Colors */
+  --color-primary: #FED75F;
+  /* GoGo Yellow */
+  --color-accent: #ED6A21;
+  /* Imperial Orange */
+  --color-dark: #1f242e;
+  --color-neutral-surface: #F8FAFC;
+  --color-background-light: #ffffff;
+
+  /* Font - DM Sans (Noah Text alternative) */
+  --font-display: "DM Sans", sans-serif;
+  --font-body: "DM Sans", sans-serif;
+
+  /* Shadows */
+  --shadow-soft: 0 8px 30px rgba(0, 0, 0, 0.06);
+  --shadow-card: 0 2px 12px rgba(0, 0, 0, 0.04);
+
+  /* Border radius */
+  --radius-3xl: 1.5rem;
+  --radius-pill: 9999px;
+
+  /* Animations */
+  @keyframes marquee {
+    0% {
+      transform: translateX(0%);
+    }
+
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+
+  --animate-marquee: marquee 25s linear infinite;
+}
+
+/* Utilities */
+.animate-marquee {
+  animation: var(--animate-marquee);
+  will-change: transform;
+}
+
+.shadow-tech {
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(0, 0, 0, 0.05);
+}
+
+/* Accessibility Focus Styles */
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+/* Base styles */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-background-light);
+  color: #0f172a;
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* Custom scrollbar hide */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Details/Summary marker hide */
+details>summary {
+  list-style: none;
+}
+
+details>summary::-webkit-details-marker {
+  display: none;
+}

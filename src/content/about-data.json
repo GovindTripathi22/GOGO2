@@ -1,0 +1,74 @@
+{
+    "milestones": [
+        {
+            "year": "2022",
+            "title": {
+                "en": "The Idea",
+                "fr": "L'Idée"
+            },
+            "description": {
+                "en": "Founders observed fleet operators wasting hours at gas stations. The idea for on-demand fuel delivery was born.",
+                "fr": "Les fondateurs ont observé des flottes perdant des heures en station. L'idée de livraison à la demande est née."
+            }
+        },
+        {
+            "year": "2023",
+            "title": {
+                "en": "First Truck",
+                "fr": "Premier Camion"
+            },
+            "description": {
+                "en": "GoGo launched with a single ADR-certified truck serving 5 pilot customers in Cotonou.",
+                "fr": "GoGo a lancé avec un seul camion certifié ADR au service de 5 clients pilotes à Cotonou."
+            }
+        },
+        {
+            "year": "2024",
+            "title": {
+                "en": "App Launch",
+                "fr": "Lancement de l'App"
+            },
+            "description": {
+                "en": "The GoGo mobile app launched on iOS and Android, opening service to individual consumers.",
+                "fr": "L'application mobile GoGo a été lancée sur iOS et Android, ouvrant le service aux particuliers."
+            }
+        },
+        {
+            "year": "2025",
+            "title": {
+                "en": "Expansion",
+                "fr": "Expansion"
+            },
+            "description": {
+                "en": "Expanded fleet to 15+ trucks. Serving 500+ B2B clients and thousands of individuals.",
+                "fr": "Flotte étendue à plus de 15 camions. Au service de plus de 500 clients B2B et de milliers de particuliers."
+            }
+        }
+    ],
+    "team": [
+        {
+            "name": "Founder Name",
+            "role": "CEO & Co-Founder",
+            "image": "/assets/images/team/placeholder-1.jpg",
+            "bio": "Visionary leader with 10+ years in energy logistics."
+        },
+        {
+            "name": "Co-Founder Name",
+            "role": "COO & Co-Founder",
+            "image": "/assets/images/team/placeholder-2.jpg",
+            "bio": "Operations expert passionate about efficiency."
+        },
+        {
+            "name": "Tech Lead",
+            "role": "CTO",
+            "image": "/assets/images/team/placeholder-3.jpg",
+            "bio": "Building the technology that powers GoGo."
+        },
+        {
+            "name": "Growth Lead",
+            "role": "Head of Growth",
+            "image": "/assets/images/team/placeholder-4.jpg",
+            "bio": "Driving expansion across West Africa."
+        }
+    ]
+}

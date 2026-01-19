@@ -1,0 +1,58 @@
+[
+  {
+    "id": "fuel-gasoline",
+    "name": "Premium Gasoline",
+    "category": "fuel",
+    "description": "High-octane gasoline for optimal engine",
+    "image": "fuel-pump.jpg"
+  },
+  {
+    "id": "fuel-diesel",
+    "name": "Ultra-Low Sulfur Diesel",
+    "category": "fuel",
+    "description": "Clean burning diesel for commercial fleets.",
+    "image": "diesel-truck.jpg"
+  },
+  {
+    "id": "lube-engine",
+    "name": "Synthetic Engine Oil",
+    "category": "lubricant",
+    "description": "Advanced protection for high-performance engines.",
+    "image": "oil-can.jpg"
+  },
+  {
+    "id": "lube-trans",
+    "name": "Transmission Fluid",
+    "category": "lubricant",
+    "description": "Smooth shifting and wear protection.",
+    "image": "trans-fluid.jpg"
+  },
+  {
+    "id": "lube-hydro",
+    "name": "Hydraulic Oil",
+    "category": "lubricant",
+    "description": "High stability for hydraulic systems.",
+    "image": "hydro-oil.jpg"
+  },
+  {
+    "id": "lube-industrial",
+    "name": "Industrial Lubricant",
+    "category": "lubricant",
+    "description": "Heavy-duty lubrication for machinery.",
+    "image": "industrial-lube.jpg"
+  },
+  {
+    "id": "lube-grease",
+    "name": "Multi-Purpose Grease",
+    "category": "lubricant",
+    "description": "Long-lasting protection against friction.",
+    "image": "grease.jpg"
+  },
+  {
+    "id": "lube-premium",
+    "name": "Premium Synthetic Oil",
+    "category": "lubricant",
+    "description": "Top-tier formula for extreme conditions.",
+    "image": "premium-oil.jpg"
+  }
+]

@@ -1,0 +1,111 @@
+{
+    "features": [
+        {
+            "id": "order",
+            "icon": "Smartphone",
+            "title": {
+                "en": "Order in 3 Taps",
+                "fr": "Commandez en 3 clics"
+            },
+            "description": {
+                "en": "Request fuel delivery in seconds. No calls, no waiting.",
+                "fr": "Demandez une livraison en quelques secondes."
+            }
+        },
+        {
+            "id": "tracking",
+            "icon": "MapPin",
+            "title": {
+                "en": "Real-Time Tracking",
+                "fr": "Suivi en temps réel"
+            },
+            "description": {
+                "en": "Watch your delivery arrive live on the map.",
+                "fr": "Suivez votre livraison en direct sur la carte."
+            }
+        },
+        {
+            "id": "payment",
+            "icon": "CreditCard",
+            "title": {
+                "en": "Secure Payments",
+                "fr": "Paiements sécurisés"
+            },
+            "description": {
+                "en": "Pay with card, mobile money, or cash on delivery.",
+                "fr": "Payez par carte, mobile money ou à la livraison."
+            }
+        },
+        {
+            "id": "history",
+            "icon": "History",
+            "title": {
+                "en": "Order History",
+                "fr": "Historique des commandes"
+            },
+            "description": {
+                "en": "Access all your past orders and receipts anytime.",
+                "fr": "Accédez à vos commandes et reçus à tout moment."
+            }
+        },
+        {
+            "id": "schedule",
+            "icon": "Calendar",
+            "title": {
+                "en": "Schedule Deliveries",
+                "fr": "Planifiez vos livraisons"
+            },
+            "description": {
+                "en": "Set recurring deliveries so you never run empty.",
+                "fr": "Programmez des livraisons récurrentes."
+            }
+        },
+        {
+            "id": "support",
+            "icon": "Headphones",
+            "title": {
+                "en": "24/7 Support",
+                "fr": "Support 24/7"
+            },
+            "description": {
+                "en": "Get help anytime via in-app chat or call.",
+                "fr": "Obtenez de l'aide à tout moment."
+            }
+        }
+    ],
+    "howItWorks": [
+        {
+            "step": 1,
+            "title": {
+                "en": "Download the App",
+                "fr": "Téléchargez l'app"
+            },
+            "description": {
+                "en": "Get GoGo from App Store or Google Play.",
+                "fr": "Téléchargez GoGo sur l'App Store ou Google Play."
+            }
+        },
+        {
+            "step": 2,
+            "title": {
+                "en": "Place Your Order",
+                "fr": "Passez commande"
+            },
+            "description": {
+                "en": "Enter your location and fuel amount.",
+                "fr": "Indiquez votre position et la quantité."
+            }
+        },
+        {
+            "step": 3,
+            "title": {
+                "en": "Relax & Receive",
+                "fr": "Détendez-vous"
+            },
+            "description": {
+                "en": "Our driver arrives and fuels your vehicle.",
+                "fr": "Notre chauffeur arrive et fait le plein."
+            }
+        }
+    ]
+}

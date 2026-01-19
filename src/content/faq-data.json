@@ -1,0 +1,100 @@
+{
+    "faqs": [
+        {
+            "id": "safety-1",
+            "category": "safety",
+            "question": {
+                "en": "Is fuel delivery safe?",
+                "fr": "La livraison de carburant est-elle sûre ?"
+            },
+            "answer": {
+                "en": "Absolutely. Our trucks are ADR-certified and our drivers are trained for safe fuel handling. We follow strict international safety protocols.",
+                "fr": "Absolument. Nos camions sont certifiés ADR et nos chauffeurs sont formés à la manipulation sécurisée du carburant."
+            }
+        },
+        {
+            "id": "safety-2",
+            "category": "safety",
+            "question": {
+                "en": "What safety certifications do you have?",
+                "fr": "Quelles certifications de sécurité avez-vous ?"
+            },
+            "answer": {
+                "en": "We hold ADR (European Agreement for Transport of Dangerous Goods) certification and comply with local Benin regulations.",
+                "fr": "Nous détenons la certification ADR et respectons les réglementations locales du Bénin."
+            }
+        },
+        {
+            "id": "pricing-1",
+            "category": "pricing",
+            "question": {
+                "en": "How much does delivery cost?",
+                "fr": "Combien coûte la livraison ?"
+            },
+            "answer": {
+                "en": "Delivery fees vary by location and volume. For B2B clients, delivery is often included in custom contracts. Check the app for current rates.",
+                "fr": "Les frais de livraison varient selon la localisation et le volume. Pour les clients B2B, la livraison est souvent incluse."
+            }
+        },
+        {
+            "id": "pricing-2",
+            "category": "pricing",
+            "question": {
+                "en": "Are fuel prices the same as gas stations?",
+                "fr": "Les prix du carburant sont-ils les mêmes qu'en station ?"
+            },
+            "answer": {
+                "en": "Yes. We sell fuel at government-regulated prices, just like any licensed station in Benin.",
+                "fr": "Oui. Nous vendons le carburant aux prix réglementés par le gouvernement, comme toute station agréée."
+            }
+        },
+        {
+            "id": "delivery-1",
+            "category": "delivery",
+            "question": {
+                "en": "How fast is delivery?",
+                "fr": "Quel est le délai de livraison ?"
+            },
+            "answer": {
+                "en": "Standard delivery takes 30–90 minutes in Cotonou. You can also schedule deliveries for a specific time.",
+                "fr": "La livraison standard prend 30 à 90 minutes à Cotonou. Vous pouvez également programmer une livraison."
+            }
+        },
+        {
+            "id": "delivery-2",
+            "category": "delivery",
+            "question": {
+                "en": "What areas do you serve?",
+                "fr": "Quelles zones desservez-vous ?"
+            },
+            "answer": {
+                "en": "We currently serve Cotonou and surrounding areas. We are expanding to Porto-Novo and Parakou soon.",
+                "fr": "Nous desservons actuellement Cotonou et ses environs. Nous nous étendons bientôt à Porto-Novo et Parakou."
+            }
+        },
+        {
+            "id": "app-1",
+            "category": "app",
+            "question": {
+                "en": "Do I need the app to order?",
+                "fr": "Ai-je besoin de l'application pour commander ?"
+            },
+            "answer": {
+                "en": "The app provides the best experience, but B2B clients can also use our web dashboard or call our hotline.",
+                "fr": "L'application offre la meilleure expérience, mais les clients B2B peuvent aussi utiliser notre tableau de bord web."
+            }
+        },
+        {
+            "id": "app-2",
+            "category": "app",
+            "question": {
+                "en": "How do I track my delivery?",
+                "fr": "Comment suivre ma livraison ?"
+            },
+            "answer": {
+                "en": "Once you place an order, you'll see real-time tracking on the map in the app. You'll also receive SMS updates.",
+                "fr": "Une fois la commande passée, vous verrez le suivi en temps réel sur la carte dans l'application."
+            }
+        }
+    ]
+}

@@ -1,0 +1,18 @@
+[
+  {
+    "companyName": "mm",
+    "fleetSize": "1-10",
+    "fuelType": "Diesel",
+    "email": "mm@fbfg.com",
+    "phone": "9999999999",
+    "submittedAt": "2026-01-14T18:00:45.905Z"
+  },
+  {
+    "companyName": "RealTimeCheck",
+    "fleetSize": "50+",
+    "fuelType": "Both",
+    "email": "real@check.com",
+    "phone": "12312312",
+    "submittedAt": "2026-01-14T17:57:43.128Z"
+  }
+]
