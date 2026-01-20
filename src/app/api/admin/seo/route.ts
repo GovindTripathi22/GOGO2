@@ -1,12 +1,12 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { getAdminFromRequest } from '@/lib/auth';
-import { getAllPageSEO, savePageSEO, PageSEO } from '@/lib/cms-server';
+import { getAllPageSEO, savePageSEO } from '@/lib/cms-server';
 import { cookies } from 'next/headers';
 
 /**
  * GET /api/admin/seo - Get all page SEO data
  */
-export async function GET(request: NextRequest) {
+export async function GET() {
     const cookieStore = await cookies();
     const adminEmail = await getAdminFromRequest(cookieStore);
 

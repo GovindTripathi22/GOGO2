@@ -67,8 +67,8 @@ export default function AdminUsersPage() {
             setShowAddModal(false);
             fetchUsers();
             alert("User added successfully!");
-        } catch (err: any) {
-            setFormError(err.message);
+        } catch (err: unknown) {
+            setFormError((err as Error).message);
         } finally {
             setSubmitting(false);
         }
@@ -113,8 +113,8 @@ export default function AdminUsersPage() {
             setNewPassword("");
             setShowPasswordModal(null);
             alert("Password updated successfully!");
-        } catch (err: any) {
-            setFormError(err.message);
+        } catch (err: unknown) {
+            setFormError((err as Error).message);
         } finally {
             setSubmitting(false);
         }

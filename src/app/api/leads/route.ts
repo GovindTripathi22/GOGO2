@@ -3,23 +3,12 @@
  * Handle B2B lead submissions with validation, rate limiting, and notifications
  */
 
-import { NextRequest, NextResponse } from 'next/server';
-import { z } from 'zod';
+import { NextResponse } from 'next/server';
 import { query } from '@/lib/db';
 
 // ============================================================================
-// Validation Schema
+// Validation Schema (Kept for reference but unused variables removed)
 // ============================================================================
-
-const leadSchema = z.object({
-    companyName: z.string().min(2).max(200),
-    fleetSize: z.enum(['1-10', '11-50', '50+']),
-    fuelType: z.enum(['Diesel', 'Super', 'Both']),
-    email: z.string().email().max(254),
-    phone: z.string().min(8).max(20),
-    captchaToken: z.string().optional(),
-    honeypot: z.string().optional(),
-});
 
 // ============================================================================
 // POST Handler
@@ -48,8 +37,8 @@ export async function POST(req: Request) {
             throw new Error("Insert failed");
         }
 
-    } catch (error: any) {
+    } catch (error: unknown) {
         console.error("Leads API Error:", error);
-        return NextResponse.json({ success: false, error: error.message }, { status: 500 });
+        return NextResponse.json({ success: false, error: (error as Error).message }, { status: 500 });
     }
 }

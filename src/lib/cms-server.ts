@@ -34,7 +34,7 @@ export function getSettings() {
     return JSON.parse(data);
 }
 
-export function saveSettings(settings: any) {
+export function saveSettings(settings: Record<string, unknown>) {
     fs.writeFileSync(SETTINGS_FILE, JSON.stringify(settings, null, 2));
     return settings;
 }
@@ -61,7 +61,7 @@ export function getPageContent(slug: string) {
     return pages[slug as keyof typeof pages] || {};
 }
 
-export function savePageContent(slug: string, content: any) {
+export function savePageContent(slug: string, content: Record<string, unknown>) {
     let pages = defaultPages;
     if (fs.existsSync(PAGES_FILE)) {
         pages = { ...defaultPages, ...JSON.parse(fs.readFileSync(PAGES_FILE, 'utf-8')) };

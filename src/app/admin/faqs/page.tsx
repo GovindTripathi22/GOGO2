@@ -7,7 +7,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { ArrowLeft, Plus, Edit2, Trash2, Check, X, HelpCircle } from "lucide-react";
+import { ArrowLeft, Plus, Edit2, Trash2, HelpCircle } from "lucide-react";
 
 interface FAQ {
     id: string;
@@ -18,9 +18,7 @@ interface FAQ {
 
 export default function AdminFaqsPage() {
     const [faqs, setFaqs] = useState<FAQ[]>([]);
-    const [editingId, setEditingId] = useState<string | null>(null);
     const [language, setLanguage] = useState<"en" | "fr">("en");
-    const [showAddForm, setShowAddForm] = useState(false);
 
     // Mock add functionality
     const handleAdd = () => {
@@ -31,7 +29,7 @@ export default function AdminFaqsPage() {
             category: "general"
         };
         setFaqs([...faqs, newFaq]);
-        setShowAddForm(false);
+        // setShowAddForm(false);
     };
 
     // Mock delete functionality
@@ -115,9 +113,10 @@ export default function AdminFaqsPage() {
                                 </div>
                                 <div className="flex gap-2">
                                     <button
-                                        onClick={() => setEditingId(faq.id)}
+                                        onClick={() => { }}
                                         className="p-2 text-slate-400 hover:text-blue-500 hover:bg-blue-50 rounded-lg transition-colors"
                                         title="Edit"
+                                        disabled
                                     >
                                         <Edit2 className="w-4 h-4" />
                                     </button>
@@ -137,7 +136,7 @@ export default function AdminFaqsPage() {
                 {faqs.length === 0 && (
                     <div className="text-center py-12 bg-white rounded-xl border border-slate-200">
                         <HelpCircle className="w-12 h-12 text-slate-300 mx-auto mb-4" />
-                        <p className="text-slate-500">No FAQs yet. Click "Add FAQ" to create one.</p>
+                        <p className="text-slate-500">No FAQs yet. Click &quot;Add FAQ&quot; to create one.</p>
                     </div>
                 )}
 

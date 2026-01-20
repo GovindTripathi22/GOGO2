@@ -200,7 +200,7 @@ export default function AdminMediaPage() {
                 {/* Help Text */}
                 <div className="mt-8 bg-slate-100 rounded-xl p-4">
                     <p className="text-sm text-slate-600">
-                        💡 <strong>Tip:</strong> Click "Upload Image" to add new files. Hover over any image to preview or copy its URL.
+                        💡 <strong>Tip:</strong> Click &quot;Upload Image&quot; to add new files. Hover over any image to preview or copy its URL.
                     </p>
                 </div>
             </main>

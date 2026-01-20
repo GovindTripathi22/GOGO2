@@ -10,7 +10,7 @@ import { useEffect } from "react";
 interface ThemeSettings {
     primaryColor: string;
     accentColor: string;
-    [key: string]: any;
+    [key: string]: string | undefined;
 }
 
 export default function ThemeProvider({

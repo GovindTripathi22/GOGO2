@@ -89,7 +89,7 @@ export async function PATCH(request: NextRequest, context: RouteContext) {
 
     try {
         const body = await request.json();
-        const { translation_id, locale, title, content, seo_title, seo_description, fr_required } = body;
+        const { translation_id, title, content, seo_title, seo_description, fr_required } = body;
 
         // If updating page metadata (fr_required)
         if (typeof fr_required === 'boolean') {

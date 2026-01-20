@@ -3,9 +3,20 @@
 import { ReactNode, useEffect } from "react";
 import Lenis from "lenis";
 
+interface LenisOptions {
+    duration?: number;
+    easing?: (t: number) => number;
+    direction?: "vertical" | "horizontal";
+    gestureDirection?: "vertical" | "horizontal";
+    smooth?: boolean;
+    mouseMultiplier?: number;
+    smoothTouch?: boolean;
+    touchMultiplier?: number;
+}
+
 export default function SmoothScroll({ children }: { children: ReactNode }) {
     useEffect(() => {
-        const lenis = new Lenis({
+        const options: LenisOptions = {
             duration: 1.2,
             easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
             direction: "vertical",
@@ -14,7 +25,9 @@ export default function SmoothScroll({ children }: { children: ReactNode }) {
             mouseMultiplier: 1,
             smoothTouch: false,
             touchMultiplier: 2,
-        } as any);
+        };
+
+        const lenis = new Lenis(options);
 
         function raf(time: number) {
             lenis.raf(time);

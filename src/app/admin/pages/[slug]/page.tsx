@@ -26,7 +26,7 @@ interface PageContent {
 
 export default function PageEditor() {
     const params = useParams();
-    const router = useRouter();
+    // const router = useRouter(); // Unused
     const slug = params.slug as string;
 
     const [content, setContent] = useState<PageContent | null>(null);
@@ -43,22 +43,21 @@ export default function PageEditor() {
     const [previewMode, setPreviewMode] = useState<'mobile' | 'web'>('mobile');
 
     useEffect(() => {
+        const fetchContent = async () => {
+            try {
+                const res = await fetch(`/api/admin/pages/${slug}/content`);
+                if (res.ok) {
+                    const data = await res.json();
+                    setContent(data);
+                }
+            } catch (error: unknown) {
+                console.error("Failed to load content", error);
+            } finally {
+                setLoading(false);
+            }
+        };
         fetchContent();
     }, [slug]);
-
-    const fetchContent = async () => {
-        try {
-            const res = await fetch(`/api/admin/pages/${slug}/content`);
-            if (res.ok) {
-                const data = await res.json();
-                setContent(data);
-            }
-        } catch (error) {
-            console.error("Failed to load content");
-        } finally {
-            setLoading(false);
-        }
-    };
 
     const fetchMedia = async () => {
         try {

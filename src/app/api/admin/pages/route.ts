@@ -12,7 +12,7 @@ import { cookies } from 'next/headers';
 /**
  * GET /api/admin/pages - List all pages with translations
  */
-export async function GET(request: NextRequest) {
+export async function GET() {
     const cookieStore = await cookies();
     const adminEmail = await getAdminFromRequest(cookieStore);
 

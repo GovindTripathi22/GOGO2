@@ -11,7 +11,7 @@ import { cookies } from 'next/headers';
 /**
  * GET - Check if user is authenticated
  */
-export async function GET(request: NextRequest) {
+export async function GET() {
     try {
         const cookieStore = await cookies();
         const sessionCookie = cookieStore.get('admin_session');
@@ -31,7 +31,7 @@ export async function GET(request: NextRequest) {
             user: { email: session.email }
         });
 
-    } catch (error) {
+    } catch (error) { // eslint-disable-line @typescript-eslint/no-unused-vars
         return NextResponse.json({ authenticated: false }, { status: 401 });
     }
 }
@@ -39,7 +39,7 @@ export async function GET(request: NextRequest) {
 /**
  * DELETE - Logout user
  */
-export async function DELETE(request: NextRequest) {
+export async function DELETE() {
     try {
         const cookieStore = await cookies();
         const sessionCookie = cookieStore.get('admin_session');
@@ -56,7 +56,7 @@ export async function DELETE(request: NextRequest) {
 
         return response;
 
-    } catch (error) {
+    } catch (error) { // eslint-disable-line @typescript-eslint/no-unused-vars
         const response = NextResponse.json({ success: true });
         response.cookies.delete('admin_session');
         return response;

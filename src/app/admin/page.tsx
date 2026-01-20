@@ -193,7 +193,7 @@ export default function AdminDashboard() {
                         <li>• Click on any section card above to start editing</li>
                         <li>• All content supports both English and French</li>
                         <li>• Changes are saved automatically</li>
-                        <li>• Use "View Site" to preview your changes</li>
+                        <li>• Use &quot;View Site&quot; to preview your changes</li>
                     </ul>
                 </div>
             </main>

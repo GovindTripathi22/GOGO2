@@ -120,9 +120,8 @@ export default function SEOManagementPage() {
             if (res.ok) {
                 setMessage({ type: "success", text: "SEO saved successfully!" });
             } else {
-                throw new Error("Failed to save");
             }
-        } catch (error) {
+        } catch (_error: unknown) {
             setMessage({ type: "error", text: "Failed to save SEO. Please try again." });
         } finally {
             setSaving(false);
@@ -173,8 +172,8 @@ export default function SEOManagementPage() {
                 {message && (
                     <div
                         className={`mb-6 p-4 rounded-lg flex items-center gap-3 ${message.type === "success"
-                                ? "bg-green-50 text-green-700 border border-green-200"
-                                : "bg-red-50 text-red-700 border border-red-200"
+                            ? "bg-green-50 text-green-700 border border-green-200"
+                            : "bg-red-50 text-red-700 border border-red-200"
                             }`}
                     >
                         {message.type === "success" ? (
@@ -202,8 +201,8 @@ export default function SEOManagementPage() {
                                         key={slug}
                                         onClick={() => setSelectedPage(slug)}
                                         className={`w-full text-left px-4 py-3 hover:bg-slate-50 transition-colors ${selectedPage === slug
-                                                ? "bg-primary/10 border-l-4 border-primary"
-                                                : ""
+                                            ? "bg-primary/10 border-l-4 border-primary"
+                                            : ""
                                             }`}
                                     >
                                         <span className="text-sm font-medium text-slate-700">

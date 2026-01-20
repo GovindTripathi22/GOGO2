@@ -45,8 +45,8 @@ export default function AdminLoginPage() {
                 router.push('/admin');
                 router.refresh(); // Ensure middleware/server components update
             }
-        } catch (err: any) {
-            setError(err.message);
+        } catch (err: unknown) {
+            setError((err as Error).message);
         } finally {
             setLoading(false);
         }

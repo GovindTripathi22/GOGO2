@@ -21,7 +21,7 @@ interface EventData {
     category?: string;
     label?: string;
     value?: string | number;
-    [key: string]: any;
+    [key: string]: string | number | boolean | undefined;
 }
 
 /**

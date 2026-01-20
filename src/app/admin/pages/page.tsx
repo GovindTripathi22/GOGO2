@@ -160,7 +160,7 @@ export default function AdminPagesPage() {
                 {pages.length === 0 && (
                     <div className="text-center py-12 bg-white rounded-xl border border-slate-200">
                         <FileText className="w-12 h-12 text-slate-300 mx-auto mb-4" />
-                        <p className="text-slate-500">No pages yet. Click "Add Page" to create one.</p>
+                        <p className="text-slate-500">No pages yet. Click &quot;Add Page&quot; to create one.</p>
                     </div>
                 )}
 

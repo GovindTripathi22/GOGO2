@@ -144,8 +144,8 @@ export async function sendMagicLinkEmail(
     const info = await transporter.sendMail(mailOptions);
     console.log('[Email] Magic link sent to:', to, 'MessageId:', info.messageId);
     return { success: true, messageId: info.messageId };
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('[Email] Failed to send magic link:', error);
-    return { success: false, error: error.message };
+    return { success: false, error: (error as Error).message };
   }
 }

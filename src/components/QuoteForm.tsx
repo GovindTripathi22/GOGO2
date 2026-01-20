@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { submitQuote } from "@/app/actions";
-import { QuoteData } from "@/lib/quote-types";
+import { QuoteData } from "@/lib/quote-types"; // Used in type cast now
 import { trackLeadConversion } from "@/lib/analytics";
 import { useState } from "react";
 import { Loader2, CheckCircle } from "lucide-react";
@@ -49,7 +49,7 @@ export default function QuoteForm() {
         }
 
         try {
-            const result = await submitQuote({ ...data, captchaToken } as any);
+            const result = await submitQuote({ ...data, captchaToken } as QuoteData & { captchaToken: string });
 
             if (result.success) {
                 setSubmitted(true);

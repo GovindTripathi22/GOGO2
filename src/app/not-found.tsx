@@ -23,7 +23,7 @@ export default function NotFound() {
 
             {/* Subtext */}
             <p className="text-xl text-slate-500 max-w-md mb-10 leading-relaxed font-medium">
-                Even our fuel trucks don't go this far. Let's get you back on the road.
+                Even our fuel trucks don&apos;t go this far. Let&apos;s get you back on the road.
             </p>
 
             {/* Button */}

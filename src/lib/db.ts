@@ -10,7 +10,7 @@ const pool = new Pool({
     ssl: process.env.DB_SSL === "true" ? { rejectUnauthorized: false } : false,
 });
 
-export async function query(sql: string, params: any[] = []) {
+export async function query(sql: string, params: (string | number | boolean | null | undefined)[] = []) {
     const client = await pool.connect();
     try {
         return await client.query(sql, params);
@@ -43,9 +43,9 @@ export async function insertLead(data: Omit<Lead, 'id' | 'created_at'>): Promise
             [data.company_name, data.fleet_size, data.fuel_type, data.email, data.phone || null, data.email_status || 'pending']
         );
         return { lead: result.rows[0], error: null };
-    } catch (error: any) {
+    } catch (error: unknown) {
         console.error('[DB] Insert lead error:', error);
-        return { lead: null, error: error.message };
+        return { lead: null, error: (error as Error).message };
     }
 }
 

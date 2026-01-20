@@ -76,10 +76,10 @@ export async function POST(request: NextRequest) {
 
         return response;
 
-    } catch (error: any) {
+    } catch (error: unknown) {
         console.error('[Auth] Login error:', error);
         return NextResponse.json(
-            { error: `Login failed: ${error.message}` },
+            { error: `Login failed: ${(error as Error).message}` },
             { status: 500 }
         );
     }

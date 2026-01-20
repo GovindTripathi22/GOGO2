@@ -121,7 +121,7 @@ export async function loginWithPassword(email: string, password: string): Promis
  */
 export async function verifySession(token: string): Promise<UserSession | null> {
     try {
-        const decoded = jwt.verify(token, JWT_SECRET) as any;
+        const decoded = jwt.verify(token, JWT_SECRET) as { type: string; email: string; role: string };
         if (decoded.type !== 'admin_session') return null;
 
         // Optional: Check if user still exists / hasn't been banned
@@ -129,15 +129,19 @@ export async function verifySession(token: string): Promise<UserSession | null> 
         if (userResult.rows.length === 0) return null;
 
         return { email: decoded.email, role: decoded.role || 'admin' };
-    } catch (error) {
-        return null;
+    } catch (error: unknown) {
+        return null; // Token invalid
     }
 }
+
+import { cookies } from 'next/headers';
+
+type CookieStore = Awaited<ReturnType<typeof cookies>>;
 
 /**
  * Helper to get admin email from request cookies
  */
-export async function getAdminFromRequest(cookieStore: any): Promise<string | null> {
+export async function getAdminFromRequest(cookieStore: CookieStore): Promise<string | null> {
     const sessionCookie = cookieStore.get('admin_session');
     if (!sessionCookie?.value) return null;
 

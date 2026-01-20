@@ -103,7 +103,7 @@ export async function getFAQs(category: string | null, locale: 'en' | 'fr'): Pro
             JOIN faq_translations ft ON f.id = ft.faq_id
             WHERE f.is_active = true AND ft.locale = $1 AND ft.is_published = true
         `;
-        const params: any[] = [locale];
+        const params: (string | null)[] = [locale];
 
         if (category) {
             sql += ` AND f.category = $2`;
@@ -247,13 +247,13 @@ export async function isHeroVideoEnabled(): Promise<boolean> {
     }
 }
 
-export async function publishTranslation(translationId: string, userEmail: string): Promise<boolean> {
+export async function publishTranslation(translationId: string, _userEmail: string): Promise<boolean> {
     try {
         await query(
             `UPDATE page_translations SET is_published = true, published_at = NOW() WHERE id = $1`,
             [translationId]
         );
-        // Audit log logic could go here
+        // Audit log logic could go here, using _userEmail
         return true;
     } catch (error) {
         console.error('[CMS] Publish failed:', error);
