@@ -25,10 +25,8 @@ export function LangProvider({ children }: { children: ReactNode }) {
     useEffect(() => {
         const langParam = searchParams.get("lang");
         if ((langParam === "en" || langParam === "EN") && lang !== "en") {
-            // eslint-disable-next-line react-hooks/exhaustive-deps
             setLang("en");
         } else if ((langParam === "fr" || langParam === "FR") && lang !== "fr") {
-            // eslint-disable-next-line react-hooks/exhaustive-deps
             setLang("fr");
         }
         // If no param, stays as default (fr)
