@@ -16,6 +16,10 @@ const fallbackPartners: Partner[] = [
     { name: "MTN", logoUrl: "/assets/images/partner-mtn.png" },
     { name: "SGDS", logoUrl: "/assets/images/partner-sgds.png" },
     { name: "Societe Generale", logoUrl: "/assets/images/partner-socgen.png" },
+    { name: "Total Energies", logoUrl: "/assets/images/trust/total-logo.svg" },
+    { name: "Ministry of Energy", logoUrl: "/assets/images/trust/ministry-logo.svg" },
+    { name: "ISO Certified", logoUrl: "/assets/images/trust/iso-logo.svg" },
+    { name: "ADR Compliant", logoUrl: "/assets/images/trust/adr-logo.svg" },
 ];
 
 export default function TrustStrip() {

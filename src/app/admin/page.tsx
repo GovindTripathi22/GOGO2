@@ -15,7 +15,9 @@ import {
     Search,
     Plus,
     Eye,
-    ExternalLink
+    ExternalLink,
+    Users,
+    Briefcase
 } from "lucide-react";
 
 export default function AdminDashboard() {
@@ -67,6 +69,22 @@ export default function AdminDashboard() {
             href: "/admin/settings",
             count: null,
             color: "bg-slate-500"
+        },
+        {
+            title: "Users",
+            description: "Manage admin access",
+            icon: Users,
+            href: "/admin/users",
+            count: null,
+            color: "bg-indigo-500"
+        },
+        {
+            title: "Quotes",
+            description: "B2B Lead Requests",
+            icon: Briefcase,
+            href: "/admin/leads",
+            count: null, // Could fetch real count if needed
+            color: "bg-amber-500"
         }
     ];
 

@@ -60,4 +60,16 @@ export async function updateLeadEmailStatus(leadId: string, status: string, erro
     }
 }
 
+export async function getLeads(): Promise<Lead[]> {
+    try {
+        const result = await query(
+            `SELECT * FROM leads ORDER BY created_at DESC LIMIT 100`
+        );
+        return result.rows;
+    } catch (error) {
+        console.error('[DB] Get leads error:', error);
+        return [];
+    }
+}
+
 export default pool;

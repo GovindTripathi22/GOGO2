@@ -12,14 +12,16 @@ export async function POST(request: NextRequest) {
     try {
         const { email, password, captchaToken } = await request.json();
 
-        // 0. Verify Captcha
-        const isCaptchaValid = await verifyCaptcha(captchaToken);
-        if (!isCaptchaValid) {
-            await logAudit(email || 'unknown', 'ACCESS_DENIED', { reason: 'invalid_captcha' });
-            return NextResponse.json(
-                { error: 'Captcha verification failed' },
-                { status: 400 }
-            );
+        // 0. Verify Captcha (unless disabled for testing)
+        if (process.env.NEXT_PUBLIC_DISABLE_CAPTCHA !== 'true') {
+            const isCaptchaValid = await verifyCaptcha(captchaToken);
+            if (!isCaptchaValid) {
+                await logAudit(email || 'unknown', 'ACCESS_DENIED', { reason: 'invalid_captcha' });
+                return NextResponse.json(
+                    { error: 'Captcha verification failed' },
+                    { status: 400 }
+                );
+            }
         }
 
         // Validate inputs
@@ -77,7 +79,7 @@ export async function POST(request: NextRequest) {
     } catch (error: any) {
         console.error('[Auth] Login error:', error);
         return NextResponse.json(
-            { error: 'Login failed. Please try again.' },
+            { error: `Login failed: ${error.message}` },
             { status: 500 }
         );
     }
