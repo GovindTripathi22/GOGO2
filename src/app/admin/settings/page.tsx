@@ -80,7 +80,7 @@ export default function AdminSettingsPage() {
             <div className="w-full lg:flex-1 bg-white border-r border-slate-200 flex flex-col h-full overflow-y-auto">
                 {/* Header inside left panel */}
                 <header className="p-6 border-b border-slate-100 flex justify-between items-center sticky top-0 bg-white z-10">
-                    <Link href="/admin" className="text-slate-500 hover:text-slate-900">
+                    <Link href="/admin/cms" className="text-slate-500 hover:text-slate-900">
                         <ArrowLeft className="w-5 h-5" />
                     </Link>
                     <div className="flex items-center gap-3">

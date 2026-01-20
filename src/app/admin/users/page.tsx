@@ -125,7 +125,7 @@ export default function AdminUsersPage() {
             {/* Header */}
             <header className="bg-white border-b border-slate-200 px-6 py-4">
                 <div className="max-w-4xl mx-auto">
-                    <Link href="/admin" className="inline-flex items-center gap-2 text-slate-500 hover:text-slate-900 mb-4">
+                    <Link href="/admin/cms" className="inline-flex items-center gap-2 text-slate-500 hover:text-slate-900 mb-4">
                         <ArrowLeft className="w-4 h-4" />
                         Back to Dashboard
                     </Link>

@@ -14,6 +14,29 @@ import { query } from '@/lib/db';
 // POST Handler
 // ============================================================================
 
+// GET: Fetch all leads (Protected)
+import { getAdminFromRequest } from '@/lib/auth';
+import { cookies } from 'next/headers';
+
+export async function GET(req: Request) { // eslint-disable-line @typescript-eslint/no-unused-vars
+    // 1. Verify Admin Auth
+    const cookieStore = await cookies();
+    const userEmail = await getAdminFromRequest(cookieStore);
+    if (!userEmail) {
+        return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+    }
+
+    try {
+        const result = await query(
+            `SELECT * FROM leads ORDER BY created_at DESC LIMIT 100`
+        );
+        return NextResponse.json(result.rows);
+    } catch (error: unknown) {
+        console.error("Leads Fetch Error:", error);
+        return NextResponse.json({ error: (error as Error).message }, { status: 500 });
+    }
+}
+
 export async function POST(req: Request) {
     try {
         const body = await req.json();
