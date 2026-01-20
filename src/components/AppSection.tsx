@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import Image from "next/image";
-import { Truck, QrCode } from "lucide-react";
+import { QrCode } from "lucide-react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { trackAppDownload } from "@/lib/analytics";
 import { useLang } from "@/context/LangContext";
@@ -27,7 +27,6 @@ export default function AppSection() {
 
     // Create a smooth parallax effect
     const y = useTransform(scrollYProgress, [0, 1], [100, -100]);
-    const opacity = useTransform(scrollYProgress, [0, 0.2], [0, 1]);
 
     return (
         <section ref={sectionRef} className="py-24 bg-white overflow-hidden" id="app">

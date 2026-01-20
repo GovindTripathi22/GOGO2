@@ -4,14 +4,12 @@ import Image from "next/image";
 import Link from "next/link";
 import {
     ArrowRight,
-    Truck,
     BarChart3,
     CreditCard,
     ShieldCheck,
     Fuel,
     Database,
-    LayoutDashboard,
-    Users
+    LayoutDashboard
 } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";

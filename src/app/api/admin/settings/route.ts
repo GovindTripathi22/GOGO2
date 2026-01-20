@@ -16,7 +16,7 @@ export async function POST(request: NextRequest) {
         // Validation could go here
         const newSettings = saveSettings(body);
         return NextResponse.json(newSettings);
-    } catch (error) {
+    } catch {
         return NextResponse.json({ error: "Failed to save settings" }, { status: 500 });
     }
 }

@@ -10,7 +10,6 @@ interface ScrollRevealProps {
     duration?: number;
     direction?: "up" | "down" | "left" | "right" | "none";
     distance?: number;
-    threshold?: number;
 }
 
 export default function ScrollReveal({
@@ -19,8 +18,7 @@ export default function ScrollReveal({
     delay = 0,
     duration = 0.5,
     direction = "up",
-    distance = 30,
-    threshold = 0.1
+    distance = 30
 }: ScrollRevealProps) {
     const ref = useRef(null);
     const isInView = useInView(ref, { once: true, margin: "-10%" });

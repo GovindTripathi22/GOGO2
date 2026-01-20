@@ -20,7 +20,6 @@ const routeConfigs: Record<string, RateLimitConfig> = {
 };
 
 const ABUSE_THRESHOLD = 100;      // Failures before ban
-const ABUSE_WINDOW_MS = 60 * 60 * 1000;  // 1 hour
 const BAN_DURATION_MS = 60 * 60 * 1000;  // 1 hour ban
 
 // ============================================================================

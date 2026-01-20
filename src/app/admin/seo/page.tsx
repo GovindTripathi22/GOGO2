@@ -121,7 +121,7 @@ export default function SEOManagementPage() {
                 setMessage({ type: "success", text: "SEO saved successfully!" });
             } else {
             }
-        } catch (_error: unknown) {
+        } catch {
             setMessage({ type: "error", text: "Failed to save SEO. Please try again." });
         } finally {
             setSaving(false);

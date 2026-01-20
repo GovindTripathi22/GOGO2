@@ -2,8 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { ArrowLeft, Users, Plus, Trash2, KeyRound, Check, X, Loader2, AlertCircle } from "lucide-react";
-import { useRouter } from "next/navigation";
+import { ArrowLeft, Users, Plus, Trash2, KeyRound, X, Loader2, AlertCircle } from "lucide-react";
 
 interface AdminUser {
     id: string;
@@ -17,7 +16,7 @@ export default function AdminUsersPage() {
     const [loading, setLoading] = useState(true);
     const [showAddModal, setShowAddModal] = useState(false);
     const [showPasswordModal, setShowPasswordModal] = useState<string | null>(null); // userId to edit
-    const router = useRouter();
+    // router unused
 
     // Form States
     const [newEmail, setNewEmail] = useState("");
@@ -36,8 +35,8 @@ export default function AdminUsersPage() {
                 const data = await res.json();
                 setUsers(data.users || []);
             }
-        } catch (error) {
-            console.error("Failed to fetch users");
+        } catch {
+            // Removed unused error handling
         } finally {
             setLoading(false);
         }
@@ -87,8 +86,8 @@ export default function AdminUsersPage() {
             }
 
             setUsers(users.filter(u => u.id !== id));
-        } catch (error) {
-            alert("Error deleting user");
+        } catch {
+            alert("Failed to delete user");
         }
     };
 

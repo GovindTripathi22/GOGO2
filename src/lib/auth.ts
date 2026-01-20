@@ -129,7 +129,7 @@ export async function verifySession(token: string): Promise<UserSession | null> 
         if (userResult.rows.length === 0) return null;
 
         return { email: decoded.email, role: decoded.role || 'admin' };
-    } catch (error: unknown) {
+    } catch {
         return null; // Token invalid
     }
 }

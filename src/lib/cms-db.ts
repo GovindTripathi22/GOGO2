@@ -247,13 +247,13 @@ export async function isHeroVideoEnabled(): Promise<boolean> {
     }
 }
 
-export async function publishTranslation(translationId: string, _userEmail: string): Promise<boolean> {
+export async function publishTranslation(translationId: string): Promise<boolean> {
     try {
         await query(
             `UPDATE page_translations SET is_published = true, published_at = NOW() WHERE id = $1`,
             [translationId]
         );
-        // Audit log logic could go here, using _userEmail
+        // Audit log logic could go here
         return true;
     } catch (error) {
         console.error('[CMS] Publish failed:', error);

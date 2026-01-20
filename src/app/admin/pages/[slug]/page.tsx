@@ -7,9 +7,9 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { useParams, useRouter } from "next/navigation";
+import { useParams } from "next/navigation";
 import Link from "next/link";
-import { ArrowLeft, Save, Loader2, Check, Image as ImageIcon, X, Globe, Eye, Smartphone, Monitor } from "lucide-react";
+import { ArrowLeft, Save, Loader2, Image as ImageIcon, X, Globe, Smartphone, Monitor } from "lucide-react";
 import HeroPreview from "@/components/HeroPreview";
 import Image from "next/image";
 import { Montserrat } from "next/font/google";
@@ -66,7 +66,7 @@ export default function PageEditor() {
                 const data = await res.json();
                 setMediaFiles(data.media || []);
             }
-        } catch (error) {
+        } catch {
             console.error("Failed to load media");
         }
     };
@@ -90,7 +90,7 @@ export default function PageEditor() {
                 setSaved(true);
                 setTimeout(() => setSaved(false), 2000);
             }
-        } catch (error) {
+        } catch {
             alert("Failed to save");
         } finally {
             setSaving(false);

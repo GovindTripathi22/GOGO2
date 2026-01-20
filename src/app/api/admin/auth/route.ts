@@ -4,7 +4,7 @@
  * DELETE /api/admin/auth - Logout
  */
 
-import { NextRequest, NextResponse } from 'next/server';
+import { NextResponse } from 'next/server';
 import { verifySession, logAudit } from '@/lib/auth';
 import { cookies } from 'next/headers';
 

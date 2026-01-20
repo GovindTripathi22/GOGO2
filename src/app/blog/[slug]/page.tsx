@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { ArrowLeft, Calendar, User, Tag } from 'lucide-react';
+import { ArrowLeft, Calendar, User } from 'lucide-react';
 import { getBlogPostBySlug } from '@/lib/cms-server';
 
 import Navbar from '@/components/Navbar';

@@ -5,8 +5,6 @@
 
 "use client";
 
-import { useEffect } from "react";
-
 interface ThemeSettings {
     primaryColor: string;
     accentColor: string;

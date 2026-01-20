@@ -23,7 +23,7 @@ export async function POST(
         const body = await request.json();
         const savedContent = savePageContent(id, body);
         return NextResponse.json(savedContent);
-    } catch (_error: unknown) {
+    } catch {
         return NextResponse.json({ error: "Failed to save content" }, { status: 500 });
     }
 }

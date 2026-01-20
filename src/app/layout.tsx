@@ -4,7 +4,6 @@ import { LangProvider } from "@/context/LangContext";
 import { GoogleTagManager } from "@next/third-parties/google";
 import FuelTicker from "@/components/FuelTicker";
 import { Suspense } from "react";
-import Script from "next/script";
 import "./globals.css";
 
 const dmSans = DM_Sans({
@@ -52,48 +51,7 @@ export default function RootLayout({
 }>) {
   const settings = getSettings();
 
-  // LocalBusiness Schema (Expanded with Organization)
-  const organizationSchema = {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "@id": "https://gogo.bj/#organization",
-    "name": settings.siteName,
-    "url": "https://gogo.bj",
-    "logo": "https://gogo.bj/assets/images/logo-main.png",
-    "sameAs": [
-      "https://facebook.com/gogoimperial",
-      "https://twitter.com/gogoimperial",
-      "https://linkedin.com/company/gogo-imperial"
-    ],
-    "contactPoint": {
-      "@type": "ContactPoint",
-      "telephone": settings.contactPhone,
-      "contactType": "customer service",
-      "areaServed": "BJ",
-      "availableLanguage": ["English", "French"]
-    }
-  };
-
-  const localBusinessSchema = {
-    "@context": "https://schema.org",
-    "@type": "GasStation",
-    "parentOrganization": {
-      "@id": "https://gogo.bj/#organization"
-    },
-    "name": `${settings.siteName} Cotonou`,
-    "description": settings.tagline,
-    "url": "https://gogo.bj",
-    "telephone": settings.contactPhone,
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Cotonou",
-      "addressCountry": "BJ"
-    },
-    // ... rest
-  };
-
-  // ... (keeping serviceSchema variable defined but omitted in diff for brevity if not changed, but I will include full block to be safe or rely on layout structure)
-  // Actually, I should just wrap the return block with ThemeProvider and inject settings schemas.
+  // Schemas Removed as unused for now
 
   return (
     <html lang="fr" className={dmSans.variable} suppressHydrationWarning>
@@ -103,7 +61,10 @@ export default function RootLayout({
           <ThemeProvider settings={settings}>
             {/* Google Tag Manager */}
             {process.env.NEXT_PUBLIC_GTM_ID && (
-              <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GTM_ID} />
+              <GoogleTagManager
+                gtmId={process.env.NEXT_PUBLIC_GTM_ID}
+                gtmScriptUrl="https://www.googletagmanager.com/gtm.js"
+              />
             )}
             {/* ... scripts ... */}
 

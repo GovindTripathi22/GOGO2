@@ -36,7 +36,7 @@ export default function AdminMediaPage() {
                 const data = await res.json();
                 setMedia(data.media || []);
             }
-        } catch (error) {
+        } catch {
             console.error("Failed to load media");
         } finally {
             setLoading(false);
@@ -63,7 +63,7 @@ export default function AdminMediaPage() {
                 const data = await res.json();
                 alert(data.error || "Upload failed");
             }
-        } catch (error) {
+        } catch {
             alert("Upload failed");
         } finally {
             setUploading(false);

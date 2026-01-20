@@ -44,7 +44,7 @@ export default function FAQ() {
                         setFaqs(data.faqs);
                     }
                 }
-            } catch (error) {
+            } catch {
                 console.warn('[FAQ] Using fallback content');
             } finally {
                 setIsLoading(false);

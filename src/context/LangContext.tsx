@@ -30,6 +30,7 @@ export function LangProvider({ children }: { children: ReactNode }) {
             setLang("fr");
         }
         // If no param, stays as default (fr)
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [searchParams, lang]);
 
     const toggleLang = () => {

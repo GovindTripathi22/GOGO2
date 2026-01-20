@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { ArrowLeft, Mail, Phone, Truck, Fuel, Calendar, Factory, Edit, Eye, X, Check, Save, Loader2 } from 'lucide-react';
+import { ArrowLeft, Mail, Phone, Truck, Fuel, Factory, Edit, X, Save, Loader2 } from 'lucide-react';
 
 interface Lead {
     id: string;
@@ -41,8 +41,8 @@ export default function LeadsPage() {
             if (Array.isArray(data)) {
                 setLeads(data);
             }
-        } catch (error) {
-            console.error("Failed to fetch leads", error);
+        } catch {
+            console.error("Failed to fetch leads");
         } finally {
             setIsLoading(false);
         }
@@ -66,7 +66,7 @@ export default function LeadsPage() {
             } else {
                 alert('Failed to save changes');
             }
-        } catch (error) {
+        } catch {
             alert('Error updating lead');
         } finally {
             setIsSaving(false);
@@ -149,8 +149,8 @@ export default function LeadsPage() {
                                             </td>
                                             <td className="px-6 py-4">
                                                 <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${lead.email_status === 'sent' ? 'bg-green-100 text-green-800' :
-                                                        lead.email_status === 'error' ? 'bg-red-100 text-red-800' :
-                                                            'bg-yellow-100 text-yellow-800'
+                                                    lead.email_status === 'error' ? 'bg-red-100 text-red-800' :
+                                                        'bg-yellow-100 text-yellow-800'
                                                     }`}>
                                                     {lead.email_status || 'Pending'}
                                                 </span>

@@ -36,7 +36,7 @@ export default function TrustStrip() {
                         setPartners(data.partners);
                     }
                 }
-            } catch (error) {
+            } catch {
                 console.warn('[TrustStrip] Using fallback partners');
             }
         }

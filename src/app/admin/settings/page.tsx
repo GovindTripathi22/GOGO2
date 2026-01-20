@@ -35,7 +35,7 @@ export default function AdminSettingsPage() {
                 const data = await res.json();
                 setSettings(data);
             }
-        } catch (_error: unknown) {
+        } catch {
             console.error("Failed to load settings");
         } finally {
             setLoading(false);
@@ -54,7 +54,7 @@ export default function AdminSettingsPage() {
                 setSaved(true);
                 setTimeout(() => setSaved(false), 2000);
             }
-        } catch (_error: unknown) {
+        } catch {
             console.error("Failed to save");
         } finally {
             setSaving(false);

@@ -1,6 +1,5 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import { fuelPrices } from "@/lib/fuel-config";
 import { TrendingUp } from "lucide-react";
 import { useLang } from "@/context/LangContext";

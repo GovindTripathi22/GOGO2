@@ -5,7 +5,7 @@ import { useLang } from "@/context/LangContext";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 
 export default function B2BSolutions() {
-    const { lang, t } = useLang();
+    const { lang } = useLang();
     const isFr = lang.toLowerCase() === "fr";
 
     const services = [

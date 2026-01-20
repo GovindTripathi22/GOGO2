@@ -2,23 +2,14 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { businessPortalUrl } from "@/lib/fuel-config";
 import { useLang } from "@/context/LangContext";
 
 export default function Navbar() {
-    const [scrolled, setScrolled] = useState(false);
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const { lang, toggleLang, t } = useLang();
-
-    useEffect(() => {
-        const handleScroll = () => {
-            setScrolled(window.scrollY > 50);
-        };
-        window.addEventListener("scroll", handleScroll);
-        return () => window.removeEventListener("scroll", handleScroll);
-    }, []);
 
     const navLinks = [
         { href: "/b2b", label: t.nav.fleet },
