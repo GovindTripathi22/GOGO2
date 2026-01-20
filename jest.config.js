@@ -7,4 +7,5 @@ module.exports = {
     },
     testMatch: ['**/tests/**/*.test.ts'],
     setupFiles: ['<rootDir>/tests/setup.ts'],
+    modulePathIgnorePatterns: ['<rootDir>/.next/'],
 };
