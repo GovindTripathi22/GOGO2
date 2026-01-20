@@ -9,6 +9,7 @@ import { trackLeadConversion } from "@/lib/analytics";
 import { useState } from "react";
 import { Loader2, CheckCircle } from "lucide-react";
 import { useLang } from "@/context/LangContext";
+import ReCAPTCHA from "react-google-recaptcha";
 
 // Client-side schema mirroring server-side for immediate feedback
 const formSchema = z.object({
@@ -26,6 +27,7 @@ export default function QuoteForm() {
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [submitted, setSubmitted] = useState(false);
     const [serverError, setServerError] = useState<string | null>(null);
+    const [captchaToken, setCaptchaToken] = useState<string | null>(null);
 
     const {
         register,
@@ -40,8 +42,14 @@ export default function QuoteForm() {
         setIsSubmitting(true);
         setServerError(null);
 
+        if (!captchaToken) {
+            setServerError("Please verify you are not a robot.");
+            setIsSubmitting(false);
+            return;
+        }
+
         try {
-            const result = await submitQuote(data as QuoteData);
+            const result = await submitQuote({ ...data, captchaToken } as any);
 
             if (result.success) {
                 setSubmitted(true);
@@ -168,10 +176,18 @@ export default function QuoteForm() {
                 </div>
             </div>
 
+
             {/* Submit Button */}
+            <div className="flex justify-center py-2">
+                <ReCAPTCHA
+                    sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!}
+                    onChange={(token: string | null) => setCaptchaToken(token)}
+                    theme="light"
+                />
+            </div>
             <button
                 type="submit"
-                disabled={isSubmitting}
+                disabled={isSubmitting || !captchaToken}
                 className="w-full bg-black text-white font-bold py-4 rounded-xl hover:bg-gray-800 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center gap-2 min-h-[56px]"
             >
                 {isSubmitting ? (

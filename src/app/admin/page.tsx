@@ -17,10 +17,15 @@ import {
     Eye,
     ExternalLink
 } from "lucide-react";
-import { getStats } from "@/lib/local-cms";
 
 export default function AdminDashboard() {
-    const stats = getStats();
+    // Mock stats for display
+    const stats = {
+        pages: 5,
+        published: 5,
+        faqs: 0,
+        media: 12
+    };
 
     const sections = [
         {

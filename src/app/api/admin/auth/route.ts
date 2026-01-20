@@ -20,7 +20,7 @@ export async function GET(request: NextRequest) {
             return NextResponse.json({ authenticated: false }, { status: 401 });
         }
 
-        const session = verifySession(sessionCookie.value);
+        const session = await verifySession(sessionCookie.value);
 
         if (!session) {
             return NextResponse.json({ authenticated: false }, { status: 401 });
@@ -45,7 +45,7 @@ export async function DELETE(request: NextRequest) {
         const sessionCookie = cookieStore.get('admin_session');
 
         if (sessionCookie?.value) {
-            const session = verifySession(sessionCookie.value);
+            const session = await verifySession(sessionCookie.value);
             if (session) {
                 await logAudit(session.email, 'LOGOUT', {});
             }

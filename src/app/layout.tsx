@@ -44,6 +44,7 @@ import { getSettings } from "@/lib/cms-server";
 import ThemeProvider from "@/components/ThemeProvider";
 import SmoothScroll from "@/components/SmoothScroll";
 
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -101,6 +102,9 @@ export default function RootLayout({
         <SmoothScroll>
           <ThemeProvider settings={settings}>
             {/* Google Tag Manager */}
+            {process.env.NEXT_PUBLIC_GTM_ID && (
+              <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GTM_ID} />
+            )}
             {/* ... scripts ... */}
 
             <Suspense fallback={null}>

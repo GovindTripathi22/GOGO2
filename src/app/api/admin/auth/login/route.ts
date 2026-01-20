@@ -6,10 +6,21 @@
 
 import { NextRequest, NextResponse } from 'next/server';
 import { loginWithPassword, checkRateLimit, clearRateLimit, logAudit } from '@/lib/auth';
+import { verifyCaptcha } from '@/lib/captcha';
 
 export async function POST(request: NextRequest) {
     try {
-        const { email, password } = await request.json();
+        const { email, password, captchaToken } = await request.json();
+
+        // 0. Verify Captcha
+        const isCaptchaValid = await verifyCaptcha(captchaToken);
+        if (!isCaptchaValid) {
+            await logAudit(email || 'unknown', 'ACCESS_DENIED', { reason: 'invalid_captcha' });
+            return NextResponse.json(
+                { error: 'Captcha verification failed' },
+                { status: 400 }
+            );
+        }
 
         // Validate inputs
         if (!email || !password) {

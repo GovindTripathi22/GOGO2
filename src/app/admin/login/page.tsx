@@ -5,10 +5,12 @@ import { useRouter } from 'next/navigation';
 import { motion } from 'framer-motion';
 import { Loader2, Lock, ArrowRight, AlertCircle, Mail, KeyRound } from 'lucide-react';
 import Link from 'next/link';
+import ReCAPTCHA from 'react-google-recaptcha';
 
 export default function AdminLoginPage() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [captchaToken, setCaptchaToken] = useState<string | null>(null);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState<string | null>(null);
     const router = useRouter();
@@ -18,11 +20,17 @@ export default function AdminLoginPage() {
         setLoading(true);
         setError(null);
 
+        if (!captchaToken) {
+            setError('Please complete the captcha verification.');
+            setLoading(false);
+            return;
+        }
+
         try {
             const res = await fetch('/api/admin/auth/login', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ email, password }),
+                body: JSON.stringify({ email, password, captchaToken }),
             });
 
             const data = await res.json();
@@ -111,9 +119,17 @@ export default function AdminLoginPage() {
                             </div>
                         </div>
 
+                        <div className="flex justify-center py-2">
+                            <ReCAPTCHA
+                                sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!}
+                                onChange={(token: string | null) => setCaptchaToken(token)}
+                                theme="dark"
+                            />
+                        </div>
+
                         <button
                             type="submit"
-                            disabled={loading}
+                            disabled={loading || !captchaToken}
                             className="w-full bg-lime-500 hover:bg-lime-400 text-neutral-950 font-bold py-3 rounded-xl transition-colors flex items-center justify-center gap-2 group disabled:opacity-50 disabled:cursor-not-allowed mt-4"
                         >
                             {loading ? (
@@ -131,9 +147,14 @@ export default function AdminLoginPage() {
                         <p className="text-xs text-neutral-500">
                             Authorized personnel only. All attempts are logged.
                         </p>
+                        <p className="text-[10px] text-neutral-600 mt-2">
+                            Protected by reCAPTCHA and the Google <a href="https://policies.google.com/privacy" className="underline">Privacy Policy</a> and <a href="https://policies.google.com/terms" className="underline">Terms of Service</a> apply.
+                        </p>
                     </div>
                 </motion.div>
             </div>
         </div>
     );
 }
+
+

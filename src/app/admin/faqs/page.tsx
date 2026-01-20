@@ -8,7 +8,6 @@
 import { useState } from "react";
 import Link from "next/link";
 import { ArrowLeft, Plus, Edit2, Trash2, Check, X, HelpCircle } from "lucide-react";
-import { getFaqs } from "@/lib/local-cms";
 
 interface FAQ {
     id: string;
@@ -18,7 +17,7 @@ interface FAQ {
 }
 
 export default function AdminFaqsPage() {
-    const [faqs, setFaqs] = useState<FAQ[]>(getFaqs());
+    const [faqs, setFaqs] = useState<FAQ[]>([]);
     const [editingId, setEditingId] = useState<string | null>(null);
     const [language, setLanguage] = useState<"en" | "fr">("en");
     const [showAddForm, setShowAddForm] = useState(false);

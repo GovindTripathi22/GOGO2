@@ -135,6 +135,18 @@ export async function verifySession(token: string): Promise<UserSession | null> 
 }
 
 /**
+ * Helper to get admin email from request cookies
+ */
+export async function getAdminFromRequest(cookieStore: any): Promise<string | null> {
+    const sessionCookie = cookieStore.get('admin_session');
+    if (!sessionCookie?.value) return null;
+
+    // verifySession is already async
+    const session = await verifySession(sessionCookie.value);
+    return session ? session.email : null;
+}
+
+/**
  * Log audit events to database
  */
 export async function logAudit(

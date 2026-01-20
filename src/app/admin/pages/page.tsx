@@ -8,7 +8,6 @@
 import { useState } from "react";
 import Link from "next/link";
 import { ArrowLeft, FileText, Plus, Edit2, Trash2, Globe, Check } from "lucide-react";
-import { getPages } from "@/lib/local-cms";
 
 interface Page {
     id: string;
@@ -19,7 +18,7 @@ interface Page {
 }
 
 export default function AdminPagesPage() {
-    const [pages, setPages] = useState<Page[]>(getPages());
+    const [pages, setPages] = useState<Page[]>([]);
     const [language, setLanguage] = useState<"en" | "fr">("en");
 
     const handleAdd = () => {

@@ -3,11 +3,21 @@
 import { QuoteSchema, QuoteData, QuoteFormResult } from "@/lib/quote-types";
 import { insertLead, updateLeadEmailStatus } from "@/lib/db";
 import { revalidatePath } from "next/cache";
+import { verifyCaptcha } from "@/lib/captcha";
 
 // Note: sendLeadNotification is imported from email.ts which we created
 // It should handle sending notifications to sales team
 
-export async function submitQuote(data: QuoteData): Promise<QuoteFormResult> {
+export async function submitQuote(data: QuoteData & { captchaToken?: string | null }): Promise<QuoteFormResult> {
+    // 0. Verify Captcha
+    const isCaptchaValid = await verifyCaptcha(data.captchaToken || null);
+    if (!isCaptchaValid) {
+        return {
+            success: false,
+            message: "Captcha verification failed. Please try again.",
+        };
+    }
+
     // Validate
     const validatedFields = QuoteSchema.safeParse(data);
 
