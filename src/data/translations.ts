@@ -437,9 +437,9 @@ export const dictionary = {
             seeFeatures: "Voir Fonctionnalités",
         },
         support: {
-            title: "Besoin d'aide ?",
-            subtitle: "Notre équipe est disponible 24/7.",
-            cta: "Contacter le Support",
+            title: "24/7 Support",
+            subtitle: "Get help anytime via in-app chat or call.",
+            cta: "Contact Support",
         },
         aboutPage: {
             ourStory: "Notre Histoire",
