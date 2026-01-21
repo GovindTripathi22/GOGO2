@@ -47,6 +47,20 @@ export const dictionary = {
                 "Lubricants — brands/types available.",
                 "Scheduled and emergency deliveries.",
                 "B2B Client Platform: order management, employee management, fleet management, digital vouchers issuance and tracking, consolidated invoicing, and consumption reporting."
+            ],
+            techFeatures: [
+                {
+                    title: "Fuel order and consumption management",
+                    desc: "Schedule deliveries, track real-time status and monitor your fuel consumption."
+                },
+                {
+                    title: "Digital vouchers",
+                    desc: "Issue and manage secure e-vouchers for your employees and partners."
+                },
+                {
+                    title: "Automated reporting",
+                    desc: "Detailed consumption reports and consolidated invoicing."
+                }
             ]
         },
         app: {
@@ -294,6 +308,20 @@ export const dictionary = {
                 "Lubrifiants — marques/types disponibles.",
                 "Livraisons programmées et d'urgence.",
                 "Plateforme client B2B : gestion des commandes, gestion des employés, gestion de flotte, émission et suivi de bons numériques, facturation consolidée et rapports de consommation."
+            ],
+            techFeatures: [
+                {
+                    title: "Gestion carburant et commandes",
+                    desc: "Planifiez des livraisons, suivez le statut en temps réel et surveillez votre consommation."
+                },
+                {
+                    title: "Bons numériques",
+                    desc: "Émettez et gérez des e-bons sécurisés pour vos employés et partenaires."
+                },
+                {
+                    title: "Rapports automatisés",
+                    desc: "Rapports de consommation détaillés et facturation consolidée."
+                }
             ]
         },
         app: {

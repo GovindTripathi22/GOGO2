@@ -48,9 +48,27 @@ export default function B2BClient() {
     ];
 
     const features = [
-        { icon: LayoutDashboard, title: "Order Management", desc: "Schedule deliveries and track real-time status.", color: "blue", delay: 0.1 },
-        { icon: CreditCard, title: "Digital Vouchers", desc: "Issue secure e-vouchers to drivers for controlled refueling.", color: "purple", delay: 0.2 },
-        { icon: BarChart3, title: "Automated Reporting", desc: "Detailed consumption reports per vehicle and consolidated invoicing.", color: "orange", delay: 0.3 },
+        {
+            icon: LayoutDashboard,
+            title: t.b2b.techFeatures[0].title,
+            desc: t.b2b.techFeatures[0].desc,
+            color: "blue",
+            delay: 0.1
+        },
+        {
+            icon: CreditCard,
+            title: t.b2b.techFeatures[1].title,
+            desc: t.b2b.techFeatures[1].desc,
+            color: "purple",
+            delay: 0.2
+        },
+        {
+            icon: BarChart3,
+            title: t.b2b.techFeatures[2].title,
+            desc: t.b2b.techFeatures[2].desc,
+            color: "orange",
+            delay: 0.3
+        },
     ];
 
     return (
