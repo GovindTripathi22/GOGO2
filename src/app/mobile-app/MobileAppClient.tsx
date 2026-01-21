@@ -21,11 +21,11 @@ export default function MobileAppClient() {
 
             <main id="main-content">
                 {/* Hero Section */}
-                <section className="relative bg-slate-900 text-white py-24 overflow-hidden">
+                <section className="relative bg-white text-slate-900 py-24 overflow-hidden border-b border-gray-100">
                     <div className="absolute inset-0 opacity-20">
                         <div
                             style={{
-                                backgroundImage: "radial-gradient(#4b5563 1px, transparent 1px)",
+                                backgroundImage: "radial-gradient(#e5e7eb 1px, transparent 1px)", // Light gray dots
                                 backgroundSize: "24px 24px",
                             }}
                             className="w-full h-full"
@@ -36,17 +36,17 @@ export default function MobileAppClient() {
                         <div className="flex flex-col lg:flex-row items-center gap-12">
                             <div className="flex-1 text-center lg:text-left">
                                 <ScrollReveal direction="down" delay={0.1}>
-                                    <span className="inline-block bg-primary/20 text-primary px-4 py-1.5 rounded-full text-sm font-bold mb-6">
+                                    <span className="inline-block bg-primary/10 text-primary px-4 py-1.5 rounded-full text-sm font-bold mb-6">
                                         {t.heroExpanded.forIndividuals}
                                     </span>
                                 </ScrollReveal>
                                 <ScrollReveal delay={0.2}>
-                                    <h1 className="text-4xl md:text-6xl font-extrabold mb-6 leading-tight">
+                                    <h1 className="text-4xl md:text-6xl font-extrabold mb-6 leading-tight text-slate-900">
                                         {t.app.title} <span className="text-primary italic">{t.app.titleHighlight}</span>
                                     </h1>
                                 </ScrollReveal>
                                 <ScrollReveal delay={0.3}>
-                                    <p className="text-xl text-slate-300 max-w-2xl mx-auto lg:mx-0 mb-10">
+                                    <p className="text-xl text-slate-600 max-w-2xl mx-auto lg:mx-0 mb-10">
                                         {t.app.subtitle}
                                     </p>
                                 </ScrollReveal>
@@ -62,7 +62,7 @@ export default function MobileAppClient() {
                                         </a>
                                         <a
                                             href="#features"
-                                            className="inline-flex items-center justify-center gap-2 bg-white/10 text-white px-8 py-4 rounded-full font-bold hover:bg-white/20 transition-colors border border-white/20"
+                                            className="inline-flex items-center justify-center gap-2 bg-slate-100 text-slate-900 px-8 py-4 rounded-full font-bold hover:bg-slate-200 transition-colors border border-slate-200"
                                         >
                                             {t.common.seeFeatures}
                                         </a>
@@ -78,7 +78,7 @@ export default function MobileAppClient() {
                                         alt="GoGo App Mobile Interface"
                                         width={400}
                                         height={800}
-                                        className="w-full h-auto drop-shadow-2xl"
+                                        className="w-full h-auto" // Removed drop-shadow-2xl to fix border issue
                                         priority
                                     />
                                 </div>
@@ -87,8 +87,8 @@ export default function MobileAppClient() {
                     </div>
                 </section>
 
-                {/* Features Grid */}
-                <AppFeatures features={appFeaturesData.features} />
+                {/* Features Grid - Dark Theme */}
+                <AppFeatures features={appFeaturesData.features} theme="dark" />
 
                 {/* How It Works */}
                 <HowItWorks steps={appFeaturesData.howItWorks} />

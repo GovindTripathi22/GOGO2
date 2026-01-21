@@ -30,7 +30,16 @@ export function middleware(request: NextRequest) {
     const { pathname } = request.nextUrl;
 
     if (pathname.startsWith('/admin')) {
-        // Exclude /admin/login from protection
+        // TEMPORARY: Authentication Disabled for Testing
+        // If user tries to go to login, send them to dashboard immediately
+        if (pathname === '/admin/login') {
+            const url = request.nextUrl.clone();
+            url.pathname = '/admin';
+            return NextResponse.redirect(url);
+        }
+
+        /* 
+        // AUTHENTICATION CHECK DISABLED
         if (pathname !== '/admin/login') {
             const adminSession = request.cookies.get('admin_session');
 
@@ -41,6 +50,7 @@ export function middleware(request: NextRequest) {
                 return NextResponse.redirect(url);
             }
         }
+        */
     }
 
     const response = NextResponse.next({

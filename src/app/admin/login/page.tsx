@@ -137,10 +137,10 @@ export default function AdminLoginPage() {
                             </div>
                         </div>
 
-                        {process.env.NEXT_PUBLIC_DISABLE_CAPTCHA !== 'true' && (
+                        {process.env.NEXT_PUBLIC_DISABLE_CAPTCHA !== 'true' && process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY && (
                             <div className="flex justify-center py-2 scale-90 origin-center">
                                 <ReCAPTCHA
-                                    sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!}
+                                    sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
                                     onChange={(token: string | null) => setCaptchaToken(token)}
                                     theme="dark"
                                 />

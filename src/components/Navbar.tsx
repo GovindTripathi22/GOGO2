@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 import { businessPortalUrl } from "@/lib/fuel-config";
 import { useLang } from "@/context/LangContext";
 
@@ -98,53 +99,61 @@ export default function Navbar() {
             </nav>
 
             {/* Mobile Menu Dropdown */}
-            {mobileMenuOpen && (
-                <div className="fixed top-20 left-0 right-0 z-40 bg-white border-b border-gray-100 shadow-lg md:hidden">
-                    <div className="px-6 py-6 flex flex-col gap-4">
-                        {navLinks.map((link) => (
-                            link.external ? (
-                                <a
-                                    key={link.label}
-                                    href={link.href}
-                                    onClick={() => setMobileMenuOpen(false)}
-                                    className="text-slate-900 text-lg font-semibold hover:text-primary transition-colors py-3 min-h-[44px] flex items-center border-b border-gray-50"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                >
-                                    {link.label}
-                                </a>
-                            ) : (
-                                <Link
-                                    key={link.href}
-                                    href={link.href}
-                                    onClick={() => setMobileMenuOpen(false)}
-                                    className="text-slate-900 text-lg font-semibold hover:text-primary transition-colors py-3 min-h-[44px] flex items-center border-b border-gray-50"
-                                >
-                                    {link.label}
-                                </Link>
-                            )
-                        ))}
-                        <button
-                            onClick={() => {
-                                toggleLang();
-                                setMobileMenuOpen(false);
-                            }}
-                            className="flex items-center gap-2 text-slate-600 py-3 min-h-[44px]"
-                        >
-                            <span className={lang === "en" ? "text-primary font-bold" : ""}>English</span>
-                            <span>/</span>
-                            <span className={lang === "fr" ? "text-primary font-bold" : ""}>Français</span>
-                        </button>
-                        <Link
-                            href="/quote"
-                            onClick={() => setMobileMenuOpen(false)}
-                            className="bg-accent text-white px-6 py-4 rounded-full text-base font-bold text-center mt-2 shadow-lg hover:bg-[#d65a15] transition-colors"
-                        >
-                            {t.nav.quote}
-                        </Link>
-                    </div>
-                </div>
-            )}
+            <AnimatePresence>
+                {mobileMenuOpen && (
+                    <motion.div
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: "auto" }}
+                        exit={{ opacity: 0, height: 0 }}
+                        transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+                        className="fixed top-20 left-0 right-0 z-40 bg-white border-b border-gray-100 shadow-lg md:hidden overflow-hidden"
+                    >
+                        <div className="px-6 py-6 flex flex-col gap-4">
+                            {navLinks.map((link) => (
+                                link.external ? (
+                                    <a
+                                        key={link.label}
+                                        href={link.href}
+                                        onClick={() => setMobileMenuOpen(false)}
+                                        className="text-slate-900 text-lg font-semibold hover:text-primary transition-colors py-3 min-h-[44px] flex items-center border-b border-gray-50"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >
+                                        {link.label}
+                                    </a>
+                                ) : (
+                                    <Link
+                                        key={link.href}
+                                        href={link.href}
+                                        onClick={() => setMobileMenuOpen(false)}
+                                        className="text-slate-900 text-lg font-semibold hover:text-primary transition-colors py-3 min-h-[44px] flex items-center border-b border-gray-50"
+                                    >
+                                        {link.label}
+                                    </Link>
+                                )
+                            ))}
+                            <button
+                                onClick={() => {
+                                    toggleLang();
+                                    setMobileMenuOpen(false);
+                                }}
+                                className="flex items-center gap-2 text-slate-600 py-3 min-h-[44px]"
+                            >
+                                <span className={lang === "en" ? "text-primary font-bold" : ""}>English</span>
+                                <span>/</span>
+                                <span className={lang === "fr" ? "text-primary font-bold" : ""}>Français</span>
+                            </button>
+                            <Link
+                                href="/quote"
+                                onClick={() => setMobileMenuOpen(false)}
+                                className="bg-accent text-white px-6 py-4 rounded-full text-base font-bold text-center mt-2 shadow-lg hover:bg-[#d65a15] transition-colors"
+                            >
+                                {t.nav.quote}
+                            </Link>
+                        </div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
         </>
     );
 }

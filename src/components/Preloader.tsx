@@ -106,6 +106,7 @@ export default function Preloader({ onComplete }: PreloaderProps) {
                             src="/assets/images/logo-main.png"
                             alt="GoGo"
                             fill
+                            sizes="(max-width: 768px) 56px, 64px"
                             className="object-contain"
                             priority
                         />

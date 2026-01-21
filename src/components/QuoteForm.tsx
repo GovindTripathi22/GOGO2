@@ -42,7 +42,7 @@ export default function QuoteForm() {
         setIsSubmitting(true);
         setServerError(null);
 
-        if (!captchaToken) {
+        if (process.env.NEXT_PUBLIC_DISABLE_CAPTCHA !== 'true' && !captchaToken) {
             setServerError("Please verify you are not a robot.");
             setIsSubmitting(false);
             return;
@@ -178,16 +178,18 @@ export default function QuoteForm() {
 
 
             {/* Submit Button */}
-            <div className="flex justify-center py-2">
-                <ReCAPTCHA
-                    sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!}
-                    onChange={(token: string | null) => setCaptchaToken(token)}
-                    theme="light"
-                />
-            </div>
+            {process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY && process.env.NEXT_PUBLIC_DISABLE_CAPTCHA !== 'true' && (
+                <div className="flex justify-center py-2">
+                    <ReCAPTCHA
+                        sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
+                        onChange={(token: string | null) => setCaptchaToken(token)}
+                        theme="light"
+                    />
+                </div>
+            )}
             <button
                 type="submit"
-                disabled={isSubmitting || !captchaToken}
+                disabled={isSubmitting || (process.env.NEXT_PUBLIC_DISABLE_CAPTCHA !== 'true' && !captchaToken)}
                 className="w-full bg-black text-white font-bold py-4 rounded-xl hover:bg-gray-800 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center gap-2 min-h-[56px]"
             >
                 {isSubmitting ? (

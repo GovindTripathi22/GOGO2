@@ -10,12 +10,14 @@ import { verifyCaptcha } from "@/lib/captcha";
 
 export async function submitQuote(data: QuoteData & { captchaToken?: string | null }): Promise<QuoteFormResult> {
     // 0. Verify Captcha
-    const isCaptchaValid = await verifyCaptcha(data.captchaToken || null);
-    if (!isCaptchaValid) {
-        return {
-            success: false,
-            message: "Captcha verification failed. Please try again.",
-        };
+    if (process.env.NEXT_PUBLIC_DISABLE_CAPTCHA !== 'true') {
+        const isCaptchaValid = await verifyCaptcha(data.captchaToken || null);
+        if (!isCaptchaValid) {
+            return {
+                success: false,
+                message: "Captcha verification failed. Please try again.",
+            };
+        }
     }
 
     // Validate

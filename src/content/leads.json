@@ -1,0 +1,22 @@
+[
+  {
+    "id": "c0ff5eb1-f4e5-4160-a0e2-1a01a1103ed6",
+    "created_at": "2026-01-21T12:47:55.556Z",
+    "company_name": "Vavs",
+    "fleet_size": "1-10",
+    "fuel_type": "Diesel",
+    "email": "swrj003@gmail.com",
+    "phone": "64-465.53",
+    "email_status": "pending"
+  },
+  {
+    "id": "58719fe1-12d4-405b-a920-f851a747f872",
+    "created_at": "2026-01-21T10:31:15.585Z",
+    "company_name": "hh",
+    "fleet_size": "1-10",
+    "fuel_type": "Diesel",
+    "email": "njnjnjnjnjn@gmail.com",
+    "phone": "48454545454",
+    "email_status": "pending"
+  }
+]

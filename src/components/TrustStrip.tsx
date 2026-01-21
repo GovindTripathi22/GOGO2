@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import { useLang } from "@/context/LangContext";
+import { motion } from "framer-motion";
 
 interface Partner {
     name: string;
@@ -12,14 +13,10 @@ interface Partner {
 
 // Local fallback partners
 const fallbackPartners: Partner[] = [
+    { name: "MTN", logoUrl: "/assets/trust/mtn-logo.png" },
+    { name: "Societe Generale", logoUrl: "/assets/trust/societe-generale-logo.png" },
+    { name: "SGDS", logoUrl: "/assets/trust/sgds-logo.png" },
     { name: "MAE", logoUrl: "/assets/images/partner-mae.svg" },
-    { name: "MTN", logoUrl: "/assets/images/partner-mtn.png" },
-    { name: "SGDS", logoUrl: "/assets/images/partner-sgds.png" },
-    { name: "Societe Generale", logoUrl: "/assets/images/partner-socgen.png" },
-    { name: "Total Energies", logoUrl: "/assets/images/trust/total-logo.svg" },
-    { name: "Ministry of Energy", logoUrl: "/assets/images/trust/ministry-logo.svg" },
-    { name: "ISO Certified", logoUrl: "/assets/images/trust/iso-logo.svg" },
-    { name: "ADR Compliant", logoUrl: "/assets/images/trust/adr-logo.svg" },
 ];
 
 export default function TrustStrip() {
@@ -45,35 +42,60 @@ export default function TrustStrip() {
     }, []);
 
     return (
-        <section className="w-full py-8 border-y border-slate-100 bg-white">
-            <div className="max-w-7xl mx-auto px-6">
-                <p className="text-center text-sm font-semibold text-slate-400 mb-6 uppercase tracking-widest">
+        <section className="w-full py-10 border-y border-slate-100 bg-white overflow-hidden">
+            <div className="max-w-full">
+                <p className="text-center text-sm font-semibold text-slate-400 mb-8 uppercase tracking-widest">
                     {t.quote?.trusted || "Trusted by industry leaders"}
                 </p>
-                <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16 grayscale hover:grayscale-0 transition-all duration-500">
-                    {partners.map((partner) => (
-                        <div key={partner.name} className="relative h-10 w-28 opacity-60 hover:opacity-100 transition-opacity">
-                            {partner.websiteUrl ? (
-                                <a href={partner.websiteUrl} target="_blank" rel="noopener noreferrer">
-                                    <Image
-                                        src={partner.logoUrl}
-                                        alt={`${partner.name} - GoGo Partner`}
-                                        fill
-                                        sizes="(max-width: 768px) 100px, 150px"
-                                        className="object-contain"
-                                    />
-                                </a>
-                            ) : (
+
+                <div className="flex relative w-full overflow-hidden">
+                    {/* Marquee Track 1 */}
+                    <motion.div
+                        className="flex items-center gap-16 pr-16 min-w-full flex-shrink-0"
+                        initial={{ x: 0 }}
+                        animate={{ x: "-100%" }}
+                        transition={{
+                            repeat: Infinity,
+                            ease: "linear",
+                            duration: 30 // Adjust speed here 
+                        }}
+                    >
+                        {partners.map((partner, index) => (
+                            <div key={`${partner.name}-${index}-1`} className="relative h-12 w-32 flex-shrink-0">
                                 <Image
                                     src={partner.logoUrl}
-                                    alt={`${partner.name} - GoGo Partner`}
+                                    alt={partner.name}
                                     fill
-                                    sizes="(max-width: 768px) 100px, 150px"
+                                    sizes="128px"
+                                    className="object-contain" // Removed grayscale, keep full color
+                                />
+                            </div>
+                        ))}
+                    </motion.div>
+
+                    {/* Marquee Track 2 (Duplicate for seamless loop) */}
+                    <motion.div
+                        className="flex items-center gap-16 pr-16 min-w-full flex-shrink-0"
+                        initial={{ x: 0 }}
+                        animate={{ x: "-100%" }}
+                        transition={{
+                            repeat: Infinity,
+                            ease: "linear",
+                            duration: 30
+                        }}
+                    >
+                        {partners.map((partner, index) => (
+                            <div key={`${partner.name}-${index}-2`} className="relative h-12 w-32 flex-shrink-0">
+                                <Image
+                                    src={partner.logoUrl}
+                                    alt={partner.name}
+                                    fill
+                                    sizes="128px"
                                     className="object-contain"
                                 />
-                            )}
-                        </div>
-                    ))}
+                            </div>
+                        ))}
+                    </motion.div>
                 </div>
             </div>
         </section>
