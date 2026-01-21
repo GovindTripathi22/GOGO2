@@ -10,7 +10,9 @@ import { verifyCaptcha } from "@/lib/captcha";
 
 export async function submitQuote(data: QuoteData & { captchaToken?: string | null }): Promise<QuoteFormResult> {
     // 0. Verify Captcha
-    if (process.env.NEXT_PUBLIC_DISABLE_CAPTCHA !== 'true') {
+    // Only verify if NOT disabled AND Key exists
+    // (Prevents failure on Vercel if keys are not set)
+    if (process.env.NEXT_PUBLIC_DISABLE_CAPTCHA !== 'true' && process.env.RECAPTCHA_SECRET_KEY) {
         const isCaptchaValid = await verifyCaptcha(data.captchaToken || null);
         if (!isCaptchaValid) {
             return {
