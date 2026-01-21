@@ -8,7 +8,7 @@ export const dictionary = {
         nav: {
             home: "Home",
             services: "Services",
-            about: "About",
+            about: "About Us", // Changed from "About"
             fleet: "Fleet Solutions",
             safety: "Safety",
             login: "Login",
@@ -17,9 +17,9 @@ export const dictionary = {
             quote: "Request a B2B Quote",
         },
         hero: {
-            title: "We Go to",
-            titleHighlight: "your location",
-            subtitle: "so you keep going.",
+            title: "YOUR FUEL,",
+            titleHighlight: "ANYWHERE AND AT ANY TIME",
+            subtitle: "We Go to your location, so you keep going",
             cta: "Get Started",
             ctaSecondary: "Learn More",
             stats: {
@@ -30,25 +30,33 @@ export const dictionary = {
         },
         b2b: {
             badge: "B2B SOLUTIONS",
-            title: "Fleet & Corporate Solutions",
+            title: "B2B and Fleet Solutions",
             subtitle: "Access our B2B Platform for order management, employee vouchers, and consumption reports.",
-            cta: "Access B2B Platform",
+            intro: "A comprehensive suite of tools for seamless fuel ordering, employee and fleet management, alongside the issuance of electronic consumption vouchers for employees and strategic partners, and detailed consumption reporting.",
+            cta: "Access the B2B Platform",
             features: {
-                onsite: "On-Site Fueling",
-                onsiteDesc: "Gasoline and Diesel delivered to your fleet.",
-                analytics: "Consumption Analytics",
-                analyticsDesc: "Track every liter with detailed reports.",
-                billing: "Fleet Management",
-                billingDesc: "Optimize consumption and reduce supply costs.",
+                onsite: "Fuel Delivery",
+                onsiteDesc: "Gasoline and Diesel volumes supported.",
+                analytics: "Lubricants",
+                analyticsDesc: "Premium brands and types available.",
+                billing: "B2B Client Platform",
+                billingDesc: "Order & employee management, digital vouchers, and reporting.",
             },
+            bullets: [
+                "Fuel (gasoline, diesel) — product range and volumes supported.",
+                "Lubricants — brands/types available.",
+                "Scheduled and emergency deliveries.",
+                "B2B Client Platform: order management, employee management, fleet management, digital vouchers issuance and tracking, consolidated invoicing, and consumption reporting."
+            ]
         },
         app: {
             title: "Fueling your life",
             titleHighlight: "on demand.",
-            subtitle: "Skip the gas station. Order fuel, wash, and service with a tap. Available now in your city.",
-            eta: "Estimated Arrival",
+            subtitle: "Skip the gas station. Order fuel, wash, and service with a tap. Delivery hours: 7:00 AM – 10:00 PM.",
+            eta: "On-demand fuel",
             appStore: "App Store",
             playStore: "Google Play",
+            process: "Tap. Order. Delivered."
         },
         howItWorks: {
             step1Title: "Running",
@@ -60,7 +68,7 @@ export const dictionary = {
         },
         about: {
             badge: "About GoGo",
-            title: "YOUR FUEL, ANYWHERE AND AT ANY TIME",
+            title: "About Us", // Changed visible page title
             description: "GoGo is our response to the promise of African ingenuity: using technology to solve our own daily challenges. We don’t just deliver fuel; we deliver time and peace of mind.",
             cta: "Read our story",
             searchPlaceholder: "Search answers...",
@@ -188,11 +196,16 @@ export const dictionary = {
         },
         aboutPage: {
             ourStory: "Our Story",
-            heroTitle: "YOUR FUEL,", // FS Title Start
-            heroSuffix: "ANYWHERE AND AT ANY TIME", // FS Title End
+            heroTitle: "YOUR FUEL,",
+            heroSuffix: "ANYWHERE AND AT ANY TIME",
             heroDesc: "GoGo is our response to the promise of African ingenuity: using technology to solve our own daily challenges. We don’t just deliver fuel; we deliver time and peace of mind.",
-            originTitle: "Our Origin: Why?",
+            originTitle: "Our Origin",
             originText: "In Africa, we all know the challenge: endless traffic jams, crowded or sometimes dry gas stations, and those precious minutes lost when we could be with our loved ones or at our offices. GoGo was born from a simple observation: if the world is changing, the way we supply ourselves with energy must change too. We created GoGo to meet a fundamental need for efficiency in our rapidly changing African cities.",
+            timeline: [
+                { date: "January 2025", title: "The Idea", desc: "Founders noticed long queues and time lost at fuelling stations." },
+                { date: "June 2025", title: "Pilot Launch", desc: "First pilot in Cotonou city." },
+                { date: "December 2025", title: "Product-Market Fit", desc: "B2B features added." }
+            ],
             mission: "Simplify the life of every driver and business in Africa through safe, smart, and sustainable energy delivery technology.",
             vision: "Become the number 1 reflex for mobility in Africa, by creating an ecosystem where energy and services come to the user, and not the other way around.",
             driversTitle: "Our Pillars",
@@ -241,7 +254,7 @@ export const dictionary = {
         nav: {
             home: "Accueil",
             services: "Services",
-            about: "À Propos",
+            about: "À Propos", // "About Us" in FR usually just "À Propos"
             fleet: "Solutions Flotte",
             safety: "Sécurité",
             login: "Connexion",
@@ -251,9 +264,9 @@ export const dictionary = {
         },
 
         hero: {
-            title: "Nous Venons",
-            titleHighlight: "Chez Vous", // "We Go to your location"
-            subtitle: "pour que vous continuiez d'avancer.",
+            title: "VOTRE CARBURANT,",
+            titleHighlight: "PARTOUT ET A TOUT MOMENT",
+            subtitle: "Nous ne livrons pas seulement du carburant, nous livrons du temps et de la tranquillité d'esprit",
             cta: "Commencer",
             ctaSecondary: "En Savoir Plus",
             stats: {
@@ -264,25 +277,33 @@ export const dictionary = {
         },
         b2b: {
             badge: "POUR LES ENTREPRISES",
-            title: "Solutions Flotte",
-            subtitle: "Gérez les besoins en carburant de toute votre flotte depuis un seul tableau de bord.",
+            title: "Solutions Flotte et B2B",
+            subtitle: "Accédez à notre plateforme B2B pour la gestion des commandes, des bons et des rapports.",
+            intro: "Une suite complète d'outils pour la commande de carburant, la gestion des employés et de la flotte, ainsi que l'émission de bons de consommation numériques pour les employés et les partenaires stratégiques, et des rapports de consommation détaillés.",
             cta: "Accéder à la Plateforme B2B",
             features: {
-                onsite: "Ravitaillement Sur Site",
-                onsiteDesc: "Essence et Diesel livrés à votre flotte.",
-                analytics: "Analyses de Consommation",
-                analyticsDesc: "Suivez chaque litre avec des rapports détaillés.",
-                billing: "Gestion de Flotte",
-                billingDesc: "Optimisez la consommation et réduisez les coûts.",
+                onsite: "Livraison de Carburant",
+                onsiteDesc: "Essence et Diesel (volumes adaptés).",
+                analytics: "Lubrifiants",
+                analyticsDesc: "Marques et types premium disponibles.",
+                billing: "Plateforme Client B2B",
+                billingDesc: "Gestion commandes/employés, bons numériques et rapports.",
             },
+            bullets: [
+                "Carburant (essence, diesel) — gamme de produits et volumes pris en charge.",
+                "Lubrifiants — marques/types disponibles.",
+                "Livraisons programmées et d'urgence.",
+                "Plateforme client B2B : gestion des commandes, gestion des employés, gestion de flotte, émission et suivi de bons numériques, facturation consolidée et rapports de consommation."
+            ]
         },
         app: {
             title: "Alimentez votre vie",
             titleHighlight: "à la demande.",
-            subtitle: "Évitez la station-service. Commandez du carburant d'un simple geste.",
-            eta: "Arrivée Estimée",
+            subtitle: "Évitez la station-service. Commandez du carburant d'un simple geste. Heures de livraison : 7h00 – 22h00.",
+            eta: "Carburant à la demande",
             appStore: "App Store",
             playStore: "Google Play",
+            process: "Tapez. Commandez. Livré."
         },
         howItWorks: {
             step1Title: "En Panne",
@@ -294,7 +315,7 @@ export const dictionary = {
         },
         about: {
             badge: "À Propos de GoGo",
-            title: "VOTRE CARBURANT, PARTOUT ET À TOUT MOMENT",
+            title: "À Propos de Nous",
             description: "GoGo est notre réponse à la promesse du génie africain : utiliser la technologie pour résoudre nos propres défis quotidiens.",
             cta: "Lire notre histoire",
             searchPlaceholder: "Rechercher des réponses...",
@@ -425,8 +446,13 @@ export const dictionary = {
             heroTitle: "VOTRE CARBURANT,",
             heroSuffix: "PARTOUT ET À TOUT MOMENT",
             heroDesc: "GoGo est notre réponse à la promesse du génie africain : utiliser la technologie pour résoudre nos propres défis quotidiens. Nous ne livrons pas seulement du carburant ; nous livrons du temps et de la tranquillité d'esprit.",
-            originTitle: "Notre Origine : Pourquoi ?",
+            originTitle: "Notre Origine",
             originText: "En Afrique, nous connaissons tous le défi : les embouteillages interminables, les stations-service bondées ou parfois à sec, et ces précieuses minutes perdues alors que nous pourrions être avec nos proches ou à nos bureaux. GoGo est né d'un constat simple : si le monde change, la manière dont nous nous approvisionnons en énergie doit aussi changer. Nous avons créé GoGo pour répondre à un besoin fondamental d'efficacité dans nos villes africaines en pleine mutation.",
+            timeline: [
+                { date: "Janvier 2025", title: "L'Idée", desc: "Les fondateurs remarquent les files d'attente et le temps perdu." },
+                { date: "Juin 2025", title: "Lancement Pilote", desc: "Premier pilote dans la ville de Cotonou." },
+                { date: "Décembre 2025", title: "Product-Market Fit", desc: "Fonctionnalités B2B ajoutées." }
+            ],
             mission: "Simplifier la vie de chaque conducteur et entreprise en Afrique grâce à une technologie de livraison d'énergie sûre, intelligente et durable.",
             vision: "Devenir le réflexe numéro 1 de la mobilité en Afrique, en créant un écosystème où l'énergie et les services viennent à l'utilisateur, et non l'inverse.",
             driversTitle: "Nos Piliers",

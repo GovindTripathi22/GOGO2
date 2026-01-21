@@ -29,13 +29,13 @@ export default function Navbar() {
                 <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
                     {/* Logo */}
                     <Link href="/" className="flex items-center gap-2 rounded-full focus:outline-none focus-visible:ring-2 focus-visible:ring-accent">
-                        <div className="w-10 h-10 bg-primary rounded-full flex items-center justify-center overflow-hidden relative">
+                        <div className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center overflow-hidden relative">
                             <Image
-                                src="/assets/images/logo-main.png"
+                                src="/reviewer/logo_circle.png"
                                 alt="GoGo Imperial Energy Logo"
-                                width={32}
-                                height={32}
-                                className="object-contain"
+                                width={40}
+                                height={40}
+                                className="object-cover w-full h-full rounded-full"
                             />
                         </div>
                         <span className="text-2xl font-extrabold tracking-tight text-slate-900">GoGo</span>

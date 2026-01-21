@@ -21,9 +21,30 @@ export default function B2BClient() {
     const { t } = useLang();
 
     const solutions = [
-        { icon: Fuel, title: t.b2b.features.onsite, desc: t.b2b.features.onsiteDesc, color: "blue", items: ["Super (Gasoline)", "Diesel (Gasoil)"], delay: 0.1 },
-        { icon: Database, title: "Industrial Lubricants", desc: "Premium lubricants for heavy machinery and fleet vehicles.", color: "amber", items: ["Engine Oils", "Hydraulic Fluids"], delay: 0.2 },
-        { icon: ShieldCheck, title: "Safety & Quality", desc: "ISO-compliant operations ensuring zero contamination and maximum safety.", color: "green", items: ["Digital Metering", "Certified Drivers"], delay: 0.3 },
+        {
+            icon: Fuel,
+            title: t.b2b.features.onsite, // Fuel Delivery
+            desc: t.b2b.features.onsiteDesc,
+            color: "blue",
+            items: [t.b2b.bullets[0]], // "Fuel (gasoline, diesel)..."
+            delay: 0.1
+        },
+        {
+            icon: Database,
+            title: t.b2b.features.analytics, // Lubricants
+            desc: t.b2b.features.analyticsDesc,
+            color: "amber",
+            items: [t.b2b.bullets[1]],
+            delay: 0.2
+        },
+        {
+            icon: CreditCard,
+            title: t.b2b.features.billing, // B2B Client Platform/Vouchers
+            desc: t.b2b.features.billingDesc,
+            color: "green",
+            items: ["Digital Vouchers", "Consumption Tracking"], // Extracted from bullet 4
+            delay: 0.3
+        },
     ];
 
     const features = [
@@ -95,10 +116,12 @@ export default function B2BClient() {
                 <div className="max-w-7xl mx-auto px-6">
                     <div className="text-center max-w-3xl mx-auto mb-16">
                         <ScrollReveal delay={0.1}>
-                            <h2 className="text-3xl font-bold text-slate-900 mb-4">Core Energy Solutions</h2>
+                            <h2 className="text-3xl font-bold text-slate-900 mb-4">Our B2B Solutions</h2>
                         </ScrollReveal>
                         <ScrollReveal delay={0.2}>
-                            <p className="text-slate-600">Reliable supply of premium fuels and industrial lubricants, delivered directly to your equipment.</p>
+                            <p className="text-slate-600 text-lg leading-relaxed">
+                                {t.b2b.intro}
+                            </p>
                         </ScrollReveal>
                     </div>
 

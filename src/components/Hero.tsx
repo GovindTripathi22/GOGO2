@@ -147,7 +147,7 @@ export default function Hero({ cmsContent }: HeroProps) {
                             <div className="flex-1 flex flex-col items-start text-left w-full">
                                 <span className="text-xs font-bold tracking-wider text-slate-400 uppercase mb-2">{t.b2b.badge}</span>
                                 <h3 className="text-2xl font-bold text-slate-900 mb-2 leading-tight">{t.b2b.title}</h3>
-                                <p className="text-slate-500 text-sm mb-6 leading-relaxed">{t.b2b.subtitle.substring(0, 80)}...</p>
+                                <p className="text-slate-500 text-sm mb-6 leading-relaxed">{t.b2b.subtitle}</p>
                                 <Link
                                     href="/quote"
                                     className="w-full md:w-auto inline-flex items-center justify-center gap-2 bg-accent text-white px-6 py-3 rounded-full text-sm font-bold hover:bg-[#d65a15] transition-colors shadow-lg shadow-accent/20 min-h-[44px]"

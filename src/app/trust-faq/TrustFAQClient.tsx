@@ -54,15 +54,15 @@ export default function TrustFAQClient() {
                         </ScrollReveal>
 
                         {/* Trust Badges */}
-                        <div className="grid sm:grid-cols-3 gap-6 max-w-4xl mx-auto">
+                        <div className="grid sm:grid-cols-3 gap-6 max-w-4xl mx-auto items-stretch">
                             {trustBadges.map((badge) => {
                                 const Icon = badge.icon;
                                 return (
-                                    <ScrollReveal key={badge.title} delay={badge.delay} direction="up">
-                                        <div className="bg-white/5 border border-white/10 rounded-2xl p-6 hover:-translate-y-1 transition-transform duration-300">
+                                    <ScrollReveal key={badge.title} delay={badge.delay} direction="up" className="h-full">
+                                        <div className="bg-white/5 border border-white/10 rounded-2xl p-6 hover:-translate-y-1 transition-transform duration-300 h-full flex flex-col">
                                             <Icon className="w-8 h-8 text-primary mx-auto mb-3" />
                                             <h3 className="font-bold text-white mb-1">{badge.title}</h3>
-                                            <p className="text-sm text-slate-400">{badge.description}</p>
+                                            <p className="text-sm text-slate-400 flex-1">{badge.description}</p>
                                         </div>
                                     </ScrollReveal>
                                 );

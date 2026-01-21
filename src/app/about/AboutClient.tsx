@@ -5,7 +5,6 @@ import Link from "next/link";
 import { ArrowRight, Users, Shield, Zap } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import OriginStory from "@/components/OriginStory";
 import TeamGrid from "@/components/TeamGrid";
 import aboutData from "@/content/about-data.json";
 import { useLang } from "@/context/LangContext";
@@ -99,17 +98,17 @@ export default function AboutClient() {
                             {t.aboutPage.driversTitle}
                         </h2>
                     </ScrollReveal>
-                    <div className="grid md:grid-cols-3 gap-8">
+                    <div className="grid md:grid-cols-3 gap-8 items-stretch">
                         {pillars.map((pillar, index) => {
                             const Icon = pillar.icon;
                             return (
-                                <ScrollReveal key={pillar.title} delay={0.1 + index * 0.1} direction="up">
-                                    <div className="bg-white rounded-2xl p-8 shadow-sm border border-slate-100 hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+                                <ScrollReveal key={pillar.title} delay={0.1 + index * 0.1} direction="up" className="h-full">
+                                    <div className="bg-white rounded-2xl p-8 shadow-sm border border-slate-100 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 h-full flex flex-col">
                                         <div className={`${pillar.color} w-14 h-14 rounded-xl flex items-center justify-center mb-6`}>
                                             <Icon className="w-7 h-7 text-white" />
                                         </div>
                                         <h3 className="text-xl font-bold text-slate-900 mb-3">{pillar.title}</h3>
-                                        <p className="text-slate-600">{pillar.description}</p>
+                                        <p className="text-slate-600 flex-1">{pillar.description}</p>
                                     </div>
                                 </ScrollReveal>
                             );
@@ -118,8 +117,48 @@ export default function AboutClient() {
                 </div>
             </section>
 
-            {/* Origin Story Timeline */}
-            <OriginStory milestones={aboutData.milestones} />
+            {/* Origin Story & Timeline */}
+            <section className="py-20 bg-white">
+                <div className="max-w-7xl mx-auto px-6">
+                    {/* Origin Text */}
+                    <div className="max-w-4xl mx-auto mb-20 text-center">
+                        <ScrollReveal>
+                            <span className="inline-block bg-accent/10 text-accent border border-accent/20 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider mb-6">
+                                {t.aboutPage.originTitle}
+                            </span>
+                        </ScrollReveal>
+                        <ScrollReveal delay={0.1}>
+                            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-8">
+                                Why We Started
+                            </h2>
+                        </ScrollReveal>
+                        <ScrollReveal delay={0.2}>
+                            <p className="text-xl text-slate-600 leading-relaxed text-justify md:text-center">
+                                {t.aboutPage.originText}
+                            </p>
+                        </ScrollReveal>
+                    </div>
+
+                    {/* Timeline */}
+                    <div className="relative border-l-2 border-slate-200 ml-4 md:ml-auto md:mx-auto md:max-w-3xl space-y-12 pl-8 md:pl-0">
+                        {t.aboutPage.timeline.map((item, index) => (
+                            <div key={index} className={`relative md:grid md:grid-cols-2 md:gap-12 md:items-center ${index % 2 === 0 ? 'md:text-right' : 'md:text-left'}`}>
+                                {/* Dot */}
+                                <div className="absolute top-0 left-[-39px] md:left-1/2 md:-ml-[9px] w-5 h-5 rounded-full bg-primary border-4 border-white shadow-sm z-10"></div>
+
+                                {/* Content - Alternating */}
+                                <ScrollReveal direction={index % 2 === 0 ? "right" : "left"} delay={0.1 * index} className={index % 2 === 0 ? 'md:col-start-1 md:pr-8' : 'md:col-start-2 md:pl-8'}>
+                                    <div className={`mb-1 ${index % 2 !== 0 ? 'md:order-last' : ''}`}>
+                                        <span className="text-sm font-bold text-accent uppercase tracking-wider block mb-2">{item.date}</span>
+                                        <h3 className="text-xl font-bold text-slate-900 mb-2">{item.title}</h3>
+                                        <p className="text-slate-600">{item.desc}</p>
+                                    </div>
+                                </ScrollReveal>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </section>
 
             {/* Team Grid */}
             <TeamGrid members={aboutData.team} />

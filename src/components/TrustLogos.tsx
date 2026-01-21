@@ -10,10 +10,10 @@ interface Logo {
 }
 
 const trustLogos: Logo[] = [
-    { name: "ADR Certified", src: "/assets/images/trust/adr-logo.svg" },
-    { name: "ISO 9001", src: "/assets/images/trust/iso-logo.svg" },
-    { name: "Benin Ministry of Energy", src: "/assets/images/trust/ministry-logo.svg" },
-    { name: "Total Energies Partner", src: "/assets/images/trust/total-logo.svg" },
+    { name: "MTN Benin", src: "/assets/images/partner-mtn.png" },
+    { name: "Société Générale", src: "/assets/images/partner-socgen.png" },
+    { name: "SGDS GN", src: "/assets/images/partner-sgds.png" },
+    { name: "Ministry of Energy", src: "/assets/images/partner-mae.svg" },
 ];
 
 export default function TrustLogos() {
