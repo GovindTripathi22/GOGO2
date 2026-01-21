@@ -20,43 +20,17 @@ export default function Hero({ cmsContent }: HeroProps) {
     const videoRef = useRef<HTMLVideoElement>(null);
     const [isVideoLoaded, setIsVideoLoaded] = useState(false);
 
-    // Lazy load video logic
+    // Simple load handler
     useEffect(() => {
         if (videoRef.current) {
-            videoRef.current.play().catch(() => {
-                // Autoplay might fail (e.g., low power mode), fallback to image handled by default
-            });
+            // Ensure video plays when loaded
+            videoRef.current.play().catch(e => console.log("Autoplay prevented:", e));
         }
-    }, [isVideoLoaded]);
-
-    // Custom Loop Logic: 10s to 30s
-    useEffect(() => {
-        const video = videoRef.current;
-        if (!video) return;
-
-        const handleTimeUpdate = () => {
-            if (video.currentTime >= 30) {
-                video.currentTime = 10;
-                video.play();
-            }
-        };
-
-        const handleLoadedData = () => {
-            // Start at 10s
-            if (video.currentTime < 10) {
-                video.currentTime = 10;
-            }
-            setIsVideoLoaded(true);
-        };
-
-        video.addEventListener('timeupdate', handleTimeUpdate);
-        video.addEventListener('loadeddata', handleLoadedData);
-
-        return () => {
-            video.removeEventListener('timeupdate', handleTimeUpdate);
-            video.removeEventListener('loadeddata', handleLoadedData);
-        };
     }, []);
+
+    const handleVideoLoaded = () => {
+        setIsVideoLoaded(true);
+    };
 
     return (
         <header className="relative w-full flex flex-col items-center">
@@ -71,6 +45,7 @@ export default function Hero({ cmsContent }: HeroProps) {
                         loop
                         playsInline
                         poster="/assets/images/hero-fueling.jpg"
+                        onLoadedData={handleVideoLoaded}
                         className={`w-full h-full object-cover transition-opacity duration-1000 ${isVideoLoaded && !cmsContent?.image ? 'opacity-60' : 'opacity-0'
                             }`}
                     >
