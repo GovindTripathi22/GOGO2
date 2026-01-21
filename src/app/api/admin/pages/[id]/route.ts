@@ -6,6 +6,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { getAdminFromRequest, logAudit } from '@/lib/auth';
 import { query } from '@/lib/db';
+import { revalidatePath } from 'next/cache';
 import { cookies } from 'next/headers';
 
 interface RouteContext {
@@ -134,6 +135,9 @@ export async function PATCH(request: NextRequest, context: RouteContext) {
                 });
             }
         }
+
+        // Revalidate entire site to reflect content changes
+        revalidatePath('/', 'layout');
 
         return NextResponse.json({ success: true });
     } catch (error) {

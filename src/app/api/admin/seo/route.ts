@@ -25,6 +25,8 @@ export async function GET() {
     }
 }
 
+import { revalidatePath } from 'next/cache';
+
 /**
  * PUT /api/admin/seo - Update SEO for a specific page
  * Body: { slug: string, seo: PageSEO }
@@ -47,6 +49,9 @@ export async function PUT(request: NextRequest) {
         }
 
         const savedSEO = savePageSEO(slug, seo);
+
+        // Revalidate the entire site to ensure SEO changes are picked up everywhere
+        revalidatePath('/', 'layout');
 
         return NextResponse.json({ success: true, seo: savedSEO });
     } catch (error) {

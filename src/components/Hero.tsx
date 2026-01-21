@@ -20,17 +20,38 @@ export default function Hero({ cmsContent }: HeroProps) {
     const videoRef = useRef<HTMLVideoElement>(null);
     const [isVideoLoaded, setIsVideoLoaded] = useState(false);
 
-    // Simple load handler
+    // Custom Loop Logic: 10s to 30s
     useEffect(() => {
-        if (videoRef.current) {
-            // Ensure video plays when loaded
-            videoRef.current.play().catch(e => console.log("Autoplay prevented:", e));
-        }
-    }, []);
+        const video = videoRef.current;
+        if (!video) return;
 
-    const handleVideoLoaded = () => {
-        setIsVideoLoaded(true);
-    };
+        const handleTimeUpdate = () => {
+            // Loop between 10s and 30s
+            if (video.currentTime >= 30) {
+                video.currentTime = 10;
+                video.play().catch(() => { }); // catch play errors during loop
+            }
+        };
+
+        const handleLoadedData = () => {
+            // Initial Start at 10s
+            if (video.currentTime < 10) {
+                video.currentTime = 10;
+            }
+            video.volume = 0; // Ensure muted for autoplay policies
+            video.play()
+                .then(() => setIsVideoLoaded(true))
+                .catch((e) => console.log("Autoplay blocked:", e));
+        };
+
+        video.addEventListener('timeupdate', handleTimeUpdate);
+        video.addEventListener('loadeddata', handleLoadedData);
+
+        return () => {
+            video.removeEventListener('timeupdate', handleTimeUpdate);
+            video.removeEventListener('loadeddata', handleLoadedData);
+        };
+    }, []);
 
     return (
         <header className="relative w-full flex flex-col items-center">
@@ -42,10 +63,9 @@ export default function Hero({ cmsContent }: HeroProps) {
                         ref={videoRef}
                         autoPlay
                         muted
-                        loop
+                        loop={false} // Custom loop managed by JS
                         playsInline
                         poster="/assets/images/hero-fueling.jpg"
-                        onLoadedData={handleVideoLoaded}
                         className={`w-full h-full object-cover transition-opacity duration-1000 ${isVideoLoaded && !cmsContent?.image ? 'opacity-60' : 'opacity-0'
                             }`}
                     >
