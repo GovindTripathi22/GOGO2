@@ -67,7 +67,9 @@ export default function Hero({ cmsContent }: HeroProps) {
                     {/* Headline */}
                     <ScrollReveal delay={0.4}>
                         <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold text-white tracking-tight leading-[1.1] max-w-4xl mb-6 drop-shadow-sm">
-                            {cmsContent?.title?.[lang.toLowerCase() as 'en' | 'fr'] || t.hero.title} <span className="text-primary">{t.hero.titleHighlight}</span>
+                            <span className="inline-block bg-white/10 backdrop-blur-md px-8 py-6 rounded-[2rem] border border-white/20 shadow-xl">
+                                {cmsContent?.title?.[lang.toLowerCase() as 'en' | 'fr'] || t.hero.title} <br className="md:hidden" /> <span className="text-primary">{t.hero.titleHighlight}</span>
+                            </span>
 
                         </h1>
                     </ScrollReveal>
