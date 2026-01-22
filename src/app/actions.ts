@@ -52,18 +52,66 @@ export async function submitQuote(data: QuoteData & { captchaToken?: string | nu
             to: "Contact@gogofuels.com",
             subject: `New B2B Quote Request: ${companyName}`,
             html: `
-                <h2>New Lead Capture</h2>
-                <p><strong>Company:</strong> ${companyName}</p>
-                <p><strong>Industry:</strong> ${industry}</p>
-                <p><strong>Fleet Size:</strong> ${fleetSize}</p>
-                <p><strong>Email:</strong> ${email}</p>
-                <p><strong>Phone:</strong> ${phone}</p>
-                
-                <h3>Product Needs:</h3>
-                <ul>${productNeeds.map(p => `<li>${p}</li>`).join('')}</ul>
-                
-                <h3>Service Interests:</h3>
-                <ul>${serviceInterests?.map(s => `<li>${s}</li>`).join('') || "None"}</ul>
+                <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; border: 1px solid #e2e8f0; border-radius: 8px; overflow: hidden;">
+                    <!-- Header -->
+                    <div style="background-color: #000000; padding: 20px; text-align: center;">
+                        <h1 style="color: #ffffff; margin: 0; font-size: 24px;">GoGo Imperial Energy</h1>
+                    </div>
+                    
+                    <!-- Content -->
+                    <div style="padding: 30px; background-color: #ffffff;">
+                        <h2 style="color: #1a202c; margin-top: 0; border-bottom: 2px solid #fbbf24; padding-bottom: 10px; display: inline-block;">New B2B Quote Request</h2>
+                        
+                        <div style="margin-top: 25px;">
+                            <h3 style="color: #4a5568; font-size: 16px; text-transform: uppercase; margin-bottom: 15px;">Client Details</h3>
+                            <table style="width: 100%; border-collapse: collapse;">
+                                <tr>
+                                    <td style="padding: 8px 0; color: #718096; width: 140px;">Company:</td>
+                                    <td style="padding: 8px 0; color: #1a202c; font-weight: bold;">${companyName}</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 8px 0; color: #718096;">Industry:</td>
+                                    <td style="padding: 8px 0; color: #1a202c; font-weight: bold;">${industry}</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 8px 0; color: #718096;">Fleet Size:</td>
+                                    <td style="padding: 8px 0; color: #1a202c; font-weight: bold;">${fleetSize}</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 8px 0; color: #718096;">Email:</td>
+                                    <td style="padding: 8px 0; color: #1a202c; font-weight: bold;"><a href="mailto:${email}" style="color: #3182ce; text-decoration: none;">${email}</a></td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 8px 0; color: #718096;">Phone:</td>
+                                    <td style="padding: 8px 0; color: #1a202c; font-weight: bold;">${phone}</td>
+                                </tr>
+                            </table>
+                        </div>
+
+                        <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #e2e8f0;">
+                            <h3 style="color: #4a5568; font-size: 16px; text-transform: uppercase; margin-bottom: 15px;">Requirements</h3>
+                            
+                            <div style="margin-bottom: 20px;">
+                                <strong style="display: block; color: #2d3748; margin-bottom: 8px;">Product Needs:</strong>
+                                <div style="background-color: #f7fafc; padding: 15px; border-radius: 6px; color: #4a5568;">
+                                    ${productNeeds.map(p => `<span style="display: inline-block; background: #e2e8f0; padding: 4px 8px; border-radius: 4px; margin: 4px 4px 4px 0; font-size: 14px; font-weight: 500;">${p}</span>`).join('')}
+                                </div>
+                            </div>
+
+                            <div>
+                                <strong style="display: block; color: #2d3748; margin-bottom: 8px;">Service Interests:</strong>
+                                <div style="background-color: #f7fafc; padding: 15px; border-radius: 6px; color: #4a5568;">
+                                    ${serviceInterests?.length ? serviceInterests.map(s => `<span style="display: inline-block; background: #e2e8f0; padding: 4px 8px; border-radius: 4px; margin: 4px 4px 4px 0; font-size: 14px; font-weight: 500;">${s}</span>`).join('') : '<span style="color: #a0aec0;">None selected</span>'}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Footer -->
+                    <div style="background-color: #f7fafc; padding: 20px; text-align: center; color: #a0aec0; font-size: 12px; border-top: 1px solid #e2e8f0;">
+                        <p style="margin: 0;">Sent via GoGo Web Lead Capture</p>
+                    </div>
+                </div>
             `,
         };
 
