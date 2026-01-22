@@ -35,7 +35,7 @@ export default function Hero({ cmsContent }: HeroProps) {
                         className={`w-full h-full object-cover transition-opacity duration-1000 ${isVideoLoaded && !cmsContent?.image ? 'opacity-60' : 'opacity-0'
                             }`}
                     >
-                        <source src="/assets/videos/hero.mp4" type="video/mp4" />
+                        <source src="/assets/videos/hero.mp4?v=2" type="video/mp4" />
                     </video>
 
                     {/* Fallback Image / CMS Image */}
