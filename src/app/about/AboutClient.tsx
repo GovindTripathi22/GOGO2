@@ -5,8 +5,6 @@ import Link from "next/link";
 import { ArrowRight, Users, Shield, Zap } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import TeamGrid from "@/components/TeamGrid";
-import aboutData from "@/content/about-data.json";
 import { useLang } from "@/context/LangContext";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 
@@ -160,8 +158,7 @@ export default function AboutClient() {
                 </div>
             </section>
 
-            {/* Team Grid */}
-            <TeamGrid members={aboutData.team} />
+
 
             {/* CTA Section */}
             <section className="py-20 bg-slate-900">
