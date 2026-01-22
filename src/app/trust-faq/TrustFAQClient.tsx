@@ -58,7 +58,7 @@ export default function TrustFAQClient() {
                             {trustBadges.map((badge) => {
                                 const Icon = badge.icon;
                                 return (
-                                    <ScrollReveal key={badge.title} delay={badge.delay} direction="up" className="h-full">
+                                    <ScrollReveal key={badge.title} delay={badge.delay} direction="up" className="h-full flex flex-col">
                                         <div className="bg-white/5 border border-white/10 rounded-2xl p-6 hover:-translate-y-1 transition-transform duration-300 h-full flex flex-col">
                                             <Icon className="w-8 h-8 text-primary mx-auto mb-3" />
                                             <h3 className="font-bold text-white mb-1">{badge.title}</h3>
