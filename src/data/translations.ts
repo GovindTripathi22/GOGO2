@@ -9,7 +9,7 @@ export const dictionary = {
             home: "Home",
             services: "Services",
             about: "About Us", // Changed from "About"
-            fleet: "Fleet Solutions",
+            fleet: "B2B and Fleet Solutions",
             safety: "Safety",
             login: "Login",
             mobileApp: "Mobile App",
@@ -302,7 +302,7 @@ export const dictionary = {
             home: "Accueil",
             services: "Services",
             about: "À Propos", // "About Us" in FR usually just "À Propos"
-            fleet: "Solutions Flotte",
+            fleet: "Solutions B2B et Flotte",
             safety: "Sécurité",
             login: "Connexion",
             mobileApp: "Application",
