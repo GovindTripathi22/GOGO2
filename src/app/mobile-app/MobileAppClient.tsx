@@ -101,12 +101,12 @@ export default function MobileAppClient() {
                     <div className="max-w-4xl mx-auto px-6 text-center">
                         <ScrollReveal delay={0.1}>
                             <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-4">
-                                {t.support.title}
+                                {t.app.deliverySection.title}
                             </h2>
                         </ScrollReveal>
                         <ScrollReveal delay={0.2}>
                             <p className="text-slate-600 mb-8">
-                                {t.support.subtitle}
+                                {t.app.deliverySection.subtitle}
                             </p>
                         </ScrollReveal>
                         <ScrollReveal delay={0.3} direction="up">
@@ -114,7 +114,7 @@ export default function MobileAppClient() {
                                 href="/quote"
                                 className="inline-flex items-center justify-center gap-2 bg-accent text-white px-8 py-4 rounded-full font-bold hover:bg-[#d65a15] transition-colors"
                             >
-                                {t.support.cta}
+                                {t.app.deliverySection.cta}
                                 <ArrowRight className="w-5 h-5" />
                             </Link>
                         </ScrollReveal>

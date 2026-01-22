@@ -64,13 +64,18 @@ export const dictionary = {
             ]
         },
         app: {
-            title: "Fueling your life",
-            titleHighlight: "on demand.",
-            subtitle: "Skip the gas station. Order fuel, wash, and service with a tap. Delivery hours: 7:00 AM – 10:00 PM.",
+            title: "On-demand fuel:",
+            titleHighlight: "Tap. Order. Delivered.",
+            subtitle: "The most seamless way to fuel and service your vehicle without interrupting your day.",
             eta: "On-demand fuel",
             appStore: "App Store",
             playStore: "Google Play",
-            process: "Tap. Order. Delivered."
+            process: "Tap. Order. Delivered.",
+            deliverySection: {
+                title: "7am-10pm Delivery",
+                subtitle: "Get your fuel delivered before end of day.",
+                cta: "Contact Support"
+            }
         },
         howItWorks: {
             step1Title: "Running",
@@ -346,13 +351,18 @@ export const dictionary = {
             ]
         },
         app: {
-            title: "Alimentez votre vie",
-            titleHighlight: "à la demande.",
-            subtitle: "Évitez la station-service. Commandez du carburant d'un simple geste. Heures de livraison : 7h00 – 22h00.",
+            title: "Carburant à la demande :",
+            titleHighlight: "Tapez. Commandez. Livré.",
+            subtitle: "La façon la plus simple de faire le plein et d'entretenir votre véhicule sans interrompre votre journée.",
             eta: "Carburant à la demande",
             appStore: "App Store",
             playStore: "Google Play",
-            process: "Tapez. Commandez. Livré."
+            process: "Tapez. Commandez. Livré.",
+            deliverySection: {
+                title: "Livraison de 7h à 22h",
+                subtitle: "Faites-vous livrer votre carburant avant la fin de la journée.",
+                cta: "Contacter le support"
+            }
         },
         howItWorks: {
             step1Title: "En Panne",
