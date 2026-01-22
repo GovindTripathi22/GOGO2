@@ -141,11 +141,14 @@ export const dictionary = {
             trusted: "Trusted By Leaders",
             form: {
                 companyName: "Company Name",
+                industry: "Industry",
                 fleetSize: "Fleet Size",
+                productNeeds: "Product Needs",
+                serviceInterests: "Service Interests",
                 fuelType: "Primary Fuel",
                 email: "Work Email",
                 phone: "Phone Number",
-                submit: "Get Custom Quote",
+                submit: "Get a Quote",
                 submitting: "Processing...",
                 disclaimer: "By submitting, you agree to receive commercial communications from GoGo Imperial Energy.",
             },
@@ -163,6 +166,24 @@ export const dictionary = {
                 fuelDiesel: "Diesel",
                 fuelSuper: "Super (Gasoline)",
                 fuelBoth: "Both",
+                industry: {
+                    logistics: "Logistics & Transport",
+                    construction: "Construction",
+                    mining: "Mining",
+                    agriculture: "Agriculture",
+                    other: "Other"
+                },
+                products: {
+                    fuel: "Fuel (Diesel/Super)",
+                    lubricants: "Lubricants",
+                    bulk: "Bulk Order",
+                    vouchers: "Fuel Vouchers"
+                },
+                services: {
+                    employeeMgmt: "Employee Management",
+                    eVouchers: "Electronic Voucher Issuance",
+                    reporting: "Detailed Fleet Reporting"
+                }
             }
         },
         ticker: {
@@ -402,18 +423,16 @@ export const dictionary = {
             trusted: "Approuvé par les Leaders",
             form: {
                 companyName: "Nom de l'Entreprise",
+                industry: "Secteur d'Activité",
                 fleetSize: "Taille de la Flotte",
+                productNeeds: "Besoins en Produits",
+                serviceInterests: "Intérêts de Service",
                 fuelType: "Carburant Principal",
                 email: "Email Professionnel",
                 phone: "Numéro de Téléphone",
                 submit: "Obtenir un Devis",
                 submitting: "Traitement...",
                 disclaimer: "En soumettant, vous acceptez de recevoir des communications commerciales de GoGo Imperial Energy.",
-            },
-            success: {
-                title: "Devis Demandé!",
-                message: "Notre équipe commerciale vous contactera dans les 2 heures ouvrables.",
-                another: "Soumettre une autre demande",
             },
             options: {
                 selectSize: "Sélectionner la taille...",
@@ -424,6 +443,24 @@ export const dictionary = {
                 fuelDiesel: "Diesel",
                 fuelSuper: "Super (Essence)",
                 fuelBoth: "Les deux",
+                industry: {
+                    logistics: "Logistique & Transport",
+                    construction: "Construction",
+                    mining: "Mines",
+                    agriculture: "Agriculture",
+                    other: "Autre"
+                },
+                products: {
+                    fuel: "Carburant (Diesel/Super)",
+                    lubricants: "Lubrifiants",
+                    bulk: "Commande en Vrac",
+                    vouchers: "Bons Carburant"
+                },
+                services: {
+                    employeeMgmt: "Gestion des Employés",
+                    eVouchers: "Émission de Bons Électroniques",
+                    reporting: "Rapports de Flotte Détaillés"
+                }
             },
         },
         ticker: {

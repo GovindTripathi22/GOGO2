@@ -30,27 +30,11 @@ export function middleware(request: NextRequest) {
     const { pathname } = request.nextUrl;
 
     if (pathname.startsWith('/admin')) {
-        // TEMPORARY: Authentication Disabled for Testing
-        // If user tries to go to login, send them to dashboard immediately
-        if (pathname === '/admin/login') {
-            const url = request.nextUrl.clone();
-            url.pathname = '/admin';
-            return NextResponse.redirect(url);
-        }
-
-        /* 
-        // AUTHENTICATION CHECK DISABLED
-        if (pathname !== '/admin/login') {
-            const adminSession = request.cookies.get('admin_session');
-
-            // If no session cookie checks, redirect to login
-            if (!adminSession?.value) {
-                const url = request.nextUrl.clone();
-                url.pathname = '/admin/login';
-                return NextResponse.redirect(url);
-            }
-        }
-        */
+        // PERMANENT: Admin Panel Disabled for now
+        // Redirect all admin traffic to home
+        const url = request.nextUrl.clone();
+        url.pathname = '/';
+        return NextResponse.redirect(url);
     }
 
     const response = NextResponse.next({
