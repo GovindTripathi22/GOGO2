@@ -32,35 +32,42 @@ export const dictionary = {
             badge: "B2B SOLUTIONS",
             title: "B2B and Fleet Solutions",
             subtitle: "Access our B2B Platform for order management, employee vouchers, and consumption reports.",
-            intro: "A comprehensive suite of tools for seamless fuel ordering, employee and fleet management, alongside the issuance of electronic consumption vouchers for employees and strategic partners, and detailed consumption reporting.",
+            intro: "A comprehensive suite of tools for seamless fuel order, employees and fleet management, alongside the issuance of electronic consumption vouchers for employees and strategic partners, detailed consumption reporting.",
             cta: "Access the B2B Platform",
-            features: {
-                onsite: "Fuel Delivery",
-                onsiteDesc: "Gasoline and Diesel volumes supported.",
-                analytics: "Lubricants",
-                analyticsDesc: "Premium brands and types available.",
-                billing: "B2B Client Platform",
-                billingDesc: "Order & employee management, digital vouchers, and reporting.",
-            },
-            bullets: [
-                "Fuel (gasoline, diesel) — product range and volumes supported.",
-                "Lubricants — brands/types available.",
-                "Scheduled and emergency deliveries.",
-                "B2B Client Platform: order management, employee management, fleet management, digital vouchers issuance and tracking, consolidated invoicing, and consumption reporting."
-            ],
-            techFeatures: [
-                {
-                    title: "Fuel order and consumption management",
-                    desc: "Schedule deliveries, track real-time status and monitor your fuel consumption."
+            offers: {
+                fuel: {
+                    title: "Fuel",
+                    details: "Product range (gasoline and diesel), volume, emergency services."
                 },
-                {
-                    title: "Digital vouchers",
-                    desc: "Issue and manage secure e-vouchers for your employees and partners."
+                lubricants: {
+                    title: "Lubricants",
+                    details: "Brand/type of available lubricants."
                 },
-                {
-                    title: "Automated reporting",
-                    desc: "Detailed consumption reports and consolidated invoicing."
+                platform: {
+                    title: "Vouchers issuance and management",
+                    details: "Businesses can issue and track electronic consumption vouchers for fuel and lubricants."
                 }
+            },
+            techFeatures: [ // Kept for backwards compatibility if needed, but B2BClient will likely use benefits list
+                {
+                    title: "Enhanced transparency",
+                    desc: "Full visibility into your operations and spend."
+                },
+                {
+                    title: "Consumption tracking",
+                    desc: "Real-time optimization and detailed reporting."
+                },
+                {
+                    title: "Supply cost savings",
+                    desc: "Optimize partial loads and reduce waste."
+                }
+            ],
+            dataBenefits: [
+                "Enhanced transparency",
+                "Consumption tracking and optimization",
+                "Fleet management",
+                "Supply cost savings",
+                "Time savings in your operations"
             ]
         },
         app: {
@@ -321,33 +328,40 @@ export const dictionary = {
             subtitle: "Accédez à notre plateforme B2B pour la gestion des commandes, des bons et des rapports.",
             intro: "Une suite complète d'outils pour la commande de carburant, la gestion des employés et de la flotte, ainsi que l'émission de bons de consommation numériques pour les employés et les partenaires stratégiques, et des rapports de consommation détaillés.",
             cta: "Accéder à la Plateforme B2B",
-            features: {
-                onsite: "Livraison de Carburant",
-                onsiteDesc: "Essence et Diesel (volumes adaptés).",
-                analytics: "Lubrifiants",
-                analyticsDesc: "Marques et types premium disponibles.",
-                billing: "Plateforme Client B2B",
-                billingDesc: "Gestion commandes/employés, bons numériques et rapports.",
+            offers: {
+                fuel: {
+                    title: "Carburant",
+                    details: "Gamme de produits (essence et diesel), volume, services d'urgence."
+                },
+                lubricants: {
+                    title: "Lubrifiants",
+                    details: "Marque/type de lubrifiants disponibles."
+                },
+                platform: {
+                    title: "Émission et gestion des bons",
+                    details: "Les entreprises peuvent émettre et suivre des bons de consommation électroniques pour le carburant et les lubrifiants."
+                }
             },
-            bullets: [
-                "Carburant (essence, diesel) — gamme de produits et volumes pris en charge.",
-                "Lubrifiants — marques/types disponibles.",
-                "Livraisons programmées et d'urgence.",
-                "Plateforme client B2B : gestion des commandes, gestion des employés, gestion de flotte, émission et suivi de bons numériques, facturation consolidée et rapports de consommation."
-            ],
             techFeatures: [
                 {
-                    title: "Gestion carburant et commandes",
-                    desc: "Planifiez des livraisons, suivez le statut en temps réel et surveillez votre consommation."
+                    title: "Transparence accrue",
+                    desc: "Visibilité complète sur vos opérations."
                 },
                 {
-                    title: "Bons numériques",
-                    desc: "Émettez et gérez des e-bons sécurisés pour vos employés et partenaires."
+                    title: "Suivi consommation",
+                    desc: "Optimisation en temps réel et rapports détaillés."
                 },
                 {
-                    title: "Rapports automatisés",
-                    desc: "Rapports de consommation détaillés et facturation consolidée."
+                    title: "Économies de coûts",
+                    desc: "Optimisez les charges et réduisez le gaspillage."
                 }
+            ],
+            dataBenefits: [
+                "Transparence accrue",
+                "Suivi et optimisation de la consommation",
+                "Gestion de flotte",
+                "Économies sur les coûts d'approvisionnement",
+                "Gain de temps dans vos opérations"
             ]
         },
         app: {

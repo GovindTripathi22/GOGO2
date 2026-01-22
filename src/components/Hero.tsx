@@ -102,7 +102,7 @@ export default function Hero({ cmsContent }: HeroProps) {
                     <ScrollReveal delay={0.4}>
                         <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold text-white tracking-tight leading-[1.1] max-w-4xl mb-6 drop-shadow-sm">
                             {cmsContent?.title?.[lang.toLowerCase() as 'en' | 'fr'] || t.hero.title} <span className="text-primary italic">{!cmsContent?.title && t.hero.titleHighlight}</span>
-                            {!cmsContent?.title && <>,<br />{t.heroExpanded.suffix}</>}
+
                         </h1>
                     </ScrollReveal>
 

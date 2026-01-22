@@ -23,53 +23,33 @@ export default function B2BClient() {
     const solutions = [
         {
             icon: Fuel,
-            title: t.b2b.features.onsite, // Fuel Delivery
-            desc: t.b2b.features.onsiteDesc,
+            title: t.b2b.offers.fuel.title,
+            desc: "", // Removed short desc, using detailed items
             color: "blue",
-            items: [t.b2b.bullets[0]], // "Fuel (gasoline, diesel)..."
+            items: [t.b2b.offers.fuel.details],
             delay: 0.1
         },
         {
             icon: Database,
-            title: t.b2b.features.analytics, // Lubricants
-            desc: t.b2b.features.analyticsDesc,
+            title: t.b2b.offers.lubricants.title,
+            desc: "",
             color: "amber",
-            items: [t.b2b.bullets[1]],
+            items: [t.b2b.offers.lubricants.details],
             delay: 0.2
         },
         {
             icon: CreditCard,
-            title: t.b2b.features.billing, // B2B Client Platform/Vouchers
-            desc: t.b2b.features.billingDesc,
+            title: t.b2b.offers.platform.title,
+            desc: "",
             color: "green",
-            items: ["Digital Vouchers", "Consumption Tracking"], // Extracted from bullet 4
+            items: [t.b2b.offers.platform.details],
             delay: 0.3
         },
     ];
 
-    const features = [
-        {
-            icon: LayoutDashboard,
-            title: t.b2b.techFeatures[0].title,
-            desc: t.b2b.techFeatures[0].desc,
-            color: "blue",
-            delay: 0.1
-        },
-        {
-            icon: CreditCard,
-            title: t.b2b.techFeatures[1].title,
-            desc: t.b2b.techFeatures[1].desc,
-            color: "purple",
-            delay: 0.2
-        },
-        {
-            icon: BarChart3,
-            title: t.b2b.techFeatures[2].title,
-            desc: t.b2b.techFeatures[2].desc,
-            color: "orange",
-            delay: 0.3
-        },
-    ];
+    // Data Management Benefits
+    const benefits = t.b2b.dataBenefits || [];
+    const benefitIcons = [LayoutDashboard, BarChart3, ShieldCheck, CreditCard, Database];
 
     return (
         <main className="min-h-screen bg-white">
@@ -221,19 +201,24 @@ export default function B2BClient() {
                             </ScrollReveal>
 
                             <ul className="space-y-6">
-                                {features.map((feat) => (
-                                    <ScrollReveal key={feat.title} delay={feat.delay + 0.3} direction="right">
-                                        <li className="flex gap-4">
-                                            <div className={`w-10 h-10 rounded-full bg-${feat.color}-50 text-${feat.color}-600 flex items-center justify-center flex-shrink-0`}>
-                                                <feat.icon className="w-5 h-5" />
-                                            </div>
-                                            <div>
-                                                <h4 className="font-bold text-slate-900">{feat.title}</h4>
-                                                <p className="text-sm text-slate-600">{feat.desc}</p>
-                                            </div>
-                                        </li>
-                                    </ScrollReveal>
-                                ))}
+                                {benefits.map((benefit, index) => {
+                                    const Icon = benefitIcons[index % benefitIcons.length];
+                                    const colors = ["blue", "purple", "orange", "green", "red"];
+                                    const color = colors[index % colors.length];
+
+                                    return (
+                                        <ScrollReveal key={benefit} delay={0.1 * index + 0.3} direction="right">
+                                            <li className="flex gap-4">
+                                                <div className={`w-10 h-10 rounded-full bg-${color}-50 text-${color}-600 flex items-center justify-center flex-shrink-0`}>
+                                                    <Icon className="w-5 h-5" />
+                                                </div>
+                                                <div className="flex items-center">
+                                                    <h4 className="font-bold text-slate-900">{benefit}</h4>
+                                                </div>
+                                            </li>
+                                        </ScrollReveal>
+                                    );
+                                })}
                             </ul>
                         </div>
                     </div>
