@@ -154,30 +154,16 @@ export default function B2BClient() {
                         <ScrollReveal direction="left" delay={0.2} className="order-2 lg:order-1">
                             <div className="relative">
                                 {/* Mock Dashboard UI */}
-                                <div className="bg-slate-900 rounded-xl p-6 shadow-2xl border border-slate-800 relative z-10 rotate-1 hover:rotate-0 transition-transform duration-500">
-                                    <div className="flex items-center gap-4 mb-6 border-b border-slate-800 pb-4">
-                                        <div className="w-3 h-3 rounded-full bg-red-500" />
-                                        <div className="w-3 h-3 rounded-full bg-yellow-500" />
-                                        <div className="w-3 h-3 rounded-full bg-green-500" />
-                                        <div className="ml-auto text-xs text-slate-500 font-mono">B2B PORTAL v2.0</div>
-                                    </div>
-                                    <div className="grid grid-cols-2 gap-4 mb-6">
-                                        <div className="bg-slate-800 p-4 rounded-lg">
-                                            <div className="text-slate-400 text-xs mb-1">Fleet Consumption</div>
-                                            <div className="text-2xl font-bold text-white">4,250 L</div>
-                                            <div className="text-green-500 text-xs mt-1">↑ 12% vs last month</div>
-                                        </div>
-                                        <div className="bg-slate-800 p-4 rounded-lg">
-                                            <div className="text-slate-400 text-xs mb-1">Active Vouchers</div>
-                                            <div className="text-2xl font-bold text-white">28</div>
-                                            <div className="text-blue-500 text-xs mt-1">All valid</div>
-                                        </div>
-                                    </div>
-                                    <div className="space-y-3">
-                                        <div className="h-2 bg-slate-800 rounded w-full" />
-                                        <div className="h-2 bg-slate-800 rounded w-3/4" />
-                                        <div className="h-2 bg-slate-800 rounded w-1/2" />
-                                    </div>
+                                {/* Real Dashboard Screenshot */}
+                                <div className="relative z-10 rounded-xl overflow-hidden shadow-2xl border border-slate-800 rotate-1 hover:rotate-0 transition-transform duration-500">
+                                    <Image
+                                        src="/assets/images/b2b-portal-dashboard.jpg"
+                                        alt="GoGo B2B Portal Dashboard"
+                                        width={800}
+                                        height={500}
+                                        className="w-full h-auto object-cover"
+                                        priority
+                                    />
                                 </div>
                                 <div className="absolute inset-0 bg-accent/20 blur-3xl -z-10 transform translate-x-12 translate-y-12" />
                             </div>
