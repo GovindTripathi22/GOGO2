@@ -247,6 +247,7 @@ export const dictionary = {
             heroSuffix: "ANYWHERE AND AT ANY TIME",
             heroDesc: "GoGo is our response to the promise of African ingenuity: using technology to solve our own daily challenges. We don’t just deliver fuel; we deliver time and peace of mind.",
             originTitle: "Our Origin",
+            whyStarted: "Why We Started",
             originText: "In Africa, we all know the challenge: endless traffic jams, crowded or sometimes dry gas stations, and those precious minutes lost when we could be with our loved ones or at our offices. GoGo was born from a simple observation: if the world is changing, the way we supply ourselves with energy must change too. We created GoGo to meet a fundamental need for efficiency in our rapidly changing African cities.",
             timeline: [
                 { date: "January 2025", title: "The Idea", desc: "Founders noticed long queues and time lost at fuelling stations." },
@@ -536,6 +537,7 @@ export const dictionary = {
             heroSuffix: "PARTOUT ET À TOUT MOMENT",
             heroDesc: "GoGo est notre réponse à la promesse du génie africain : utiliser la technologie pour résoudre nos propres défis quotidiens. Nous ne livrons pas seulement du carburant ; nous livrons du temps et de la tranquillité d'esprit.",
             originTitle: "Notre Origine",
+            whyStarted: "Pourquoi la solution GoGo",
             originText: "En Afrique, nous connaissons tous le défi : les embouteillages interminables, les stations-service bondées ou parfois à sec, et ces précieuses minutes perdues alors que nous pourrions être avec nos proches ou à nos bureaux. GoGo est né d'un constat simple : si le monde change, la manière dont nous nous approvisionnons en énergie doit aussi changer. Nous avons créé GoGo pour répondre à un besoin fondamental d'efficacité dans nos villes africaines en pleine mutation.",
             timeline: [
                 { date: "Janvier 2025", title: "L'Idée", desc: "Les fondateurs remarquent les files d'attente et le temps perdu." },

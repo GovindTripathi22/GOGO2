@@ -129,7 +129,7 @@ export default function AboutClient() {
                         </ScrollReveal>
                         <ScrollReveal delay={0.1}>
                             <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-8">
-                                Why We Started
+                                {t.aboutPage.whyStarted}
                             </h2>
                         </ScrollReveal>
                         <ScrollReveal delay={0.2}>
