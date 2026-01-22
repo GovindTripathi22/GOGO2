@@ -64,12 +64,12 @@
             "id": "support",
             "icon": "Headphones",
             "title": {
-                "en": "24/7 Support",
-                "fr": "Support 24/7"
+                "en": "7am-10pm Delivery",
+                "fr": "Livraison de 7h à 22h"
             },
             "description": {
-                "en": "Get help anytime via in-app chat or call.",
-                "fr": "Obtenez de l'aide à tout moment."
+                "en": "Get your fuel delivered before end of day.",
+                "fr": "Faites-vous livrer votre carburant avant la fin de la journée."
             }
         }
     ],
