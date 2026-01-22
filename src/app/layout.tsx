@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { DM_Sans } from "next/font/google";
 import { LangProvider } from "@/context/LangContext";
-import { GoogleTagManager } from "@next/third-parties/google";
+import { GoogleTagManager, GoogleAnalytics } from "@next/third-parties/google";
 import FuelTicker from "@/components/FuelTicker";
 import { Suspense } from "react";
 import "./globals.css";
@@ -65,6 +65,10 @@ export default function RootLayout({
                 gtmId={process.env.NEXT_PUBLIC_GTM_ID}
                 gtmScriptUrl="https://www.googletagmanager.com/gtm.js"
               />
+            )}
+            {/* Google Analytics */}
+            {process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID && (
+              <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID} />
             )}
             {/* ... scripts ... */}
 
