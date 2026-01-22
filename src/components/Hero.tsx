@@ -17,41 +17,7 @@ interface HeroProps {
 
 export default function Hero({ cmsContent }: HeroProps) {
     const { t, lang } = useLang();
-    const videoRef = useRef<HTMLVideoElement>(null);
     const [isVideoLoaded, setIsVideoLoaded] = useState(false);
-
-    // Custom Loop Logic: 10s to 30s
-    useEffect(() => {
-        const video = videoRef.current;
-        if (!video) return;
-
-        const handleTimeUpdate = () => {
-            // Loop between 10s and 30s
-            if (video.currentTime >= 30) {
-                video.currentTime = 10;
-                video.play().catch(() => { }); // catch play errors during loop
-            }
-        };
-
-        const handleLoadedData = () => {
-            // Initial Start at 10s
-            if (video.currentTime < 10) {
-                video.currentTime = 10;
-            }
-            video.volume = 0; // Ensure muted for autoplay policies
-            video.play()
-                .then(() => setIsVideoLoaded(true))
-                .catch((e) => console.log("Autoplay blocked:", e));
-        };
-
-        video.addEventListener('timeupdate', handleTimeUpdate);
-        video.addEventListener('loadeddata', handleLoadedData);
-
-        return () => {
-            video.removeEventListener('timeupdate', handleTimeUpdate);
-            video.removeEventListener('loadeddata', handleLoadedData);
-        };
-    }, []);
 
     return (
         <header className="relative w-full flex flex-col items-center">
@@ -60,12 +26,12 @@ export default function Hero({ cmsContent }: HeroProps) {
                 {/* Background Video */}
                 <div className="absolute inset-0 z-0">
                     <video
-                        ref={videoRef}
                         autoPlay
                         muted
-                        loop={false} // Custom loop managed by JS
+                        loop
                         playsInline
                         poster="/assets/images/hero-fueling.jpg"
+                        onLoadedData={() => setIsVideoLoaded(true)}
                         className={`w-full h-full object-cover transition-opacity duration-1000 ${isVideoLoaded && !cmsContent?.image ? 'opacity-60' : 'opacity-0'
                             }`}
                     >
