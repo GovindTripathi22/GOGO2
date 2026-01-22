@@ -122,7 +122,7 @@ export const dictionary = {
             ],
         },
         footer: {
-            tagline: "The future of energy delivery. We keep your world moving with reliable, safe, and on-demand services.",
+            tagline: "The future of fuel delivery. We keep your world moving with reliable, safe, and on-demand services.",
             company: "Company",
             aboutUs: "About Us",
             careers: "Careers",
@@ -417,7 +417,7 @@ export const dictionary = {
             ],
         },
         footer: {
-            tagline: "L'avenir de la livraison d'énergie. Nous gardons votre monde en mouvement.",
+            tagline: "L'avenir de la livraison de carburant. Nous gardons votre monde en mouvement.",
             company: "Société",
             aboutUs: "À Propos",
             careers: "Carrières",
