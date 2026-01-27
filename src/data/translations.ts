@@ -244,6 +244,14 @@ export const dictionary = {
         common: {
             seeFeatures: "See Features",
         },
+        blog: {
+            title: "GoGo Blog",
+            subtitle: "Insights on fuel delivery, fleet management, and energy in Africa.",
+            noPosts: "No posts found. Check back soon!",
+            ctaText: "Ready to optimize your fleet?",
+            ctaButton: "Request a Quote",
+            backToBlog: "Back to Blog",
+        },
         support: {
             title: "Need help or have questions?",
             subtitle: "Our support team is available 24/7 to assist you.",
@@ -543,6 +551,14 @@ export const dictionary = {
         },
         common: {
             seeFeatures: "Voir Fonctionnalités",
+        },
+        blog: {
+            title: "Blog GoGo",
+            subtitle: "Actualités sur la livraison de carburant, la gestion de flotte et l'énergie en Afrique.",
+            noPosts: "Aucun article trouvé. Revenez bientôt !",
+            ctaText: "Prêt à optimiser votre flotte ?",
+            ctaButton: "Demander un Devis",
+            backToBlog: "Retour au Blog",
         },
         support: {
             title: "24/7 Support",

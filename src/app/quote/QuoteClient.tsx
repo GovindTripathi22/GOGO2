@@ -6,14 +6,10 @@ import Footer from "@/components/Footer";
 import { ArrowLeft, CheckCircle2 } from "lucide-react";
 import Link from "next/link";
 import ScrollReveal from "@/components/ui/ScrollReveal";
+import { useLang } from "@/context/LangContext";
 
 export default function QuoteClient() {
-    const benefits = [
-        "Save ~15% on operational costs",
-        "Real-time digital receipts",
-        "24/7 Priority Support",
-        "Net-30 Payment Terms available"
-    ];
+    const { t } = useLang();
 
     return (
         <main className="min-h-screen bg-neutral-surface font-sans">
@@ -34,7 +30,7 @@ export default function QuoteClient() {
                                 <div className="w-8 h-8 rounded-full bg-white border border-slate-200 flex items-center justify-center mr-3 group-hover:border-primary/30 transition-colors shadow-sm">
                                     <ArrowLeft className="w-4 h-4" />
                                 </div>
-                                Back to Home
+                                {t.quote.backToHome}
                             </Link>
                         </div>
                     </ScrollReveal>
@@ -45,8 +41,8 @@ export default function QuoteClient() {
                             <div>
                                 <ScrollReveal delay={0.1}>
                                     <h1 className="text-4xl md:text-5xl font-extrabold leading-[1.15] text-slate-900 mb-6 tracking-tight">
-                                        Fuel your fleet efficiently in <span className="text-primary relative inline-block">
-                                            Benin.
+                                        {t.quote.title} <span className="text-primary relative inline-block">
+                                            {t.quote.titleHighlight}
                                             <svg className="absolute w-full h-3 -bottom-1 left-0 text-primary/20" viewBox="0 0 100 10" preserveAspectRatio="none">
                                                 <path d="M0 5 Q 50 10 100 5" stroke="currentColor" strokeWidth="6" fill="none" />
                                             </svg>
@@ -55,13 +51,13 @@ export default function QuoteClient() {
                                 </ScrollReveal>
                                 <ScrollReveal delay={0.2}>
                                     <p className="text-lg text-slate-600 leading-relaxed max-w-lg">
-                                        Join over 500+ corporate partners who trust GoGo for reliable on-site fueling, maintenance, and detailed consumption analytics.
+                                        {t.quote.subtitle}
                                     </p>
                                 </ScrollReveal>
                             </div>
 
                             <ul className="space-y-5">
-                                {benefits.map((item, i) => (
+                                {t.quote.benefits.map((item, i) => (
                                     <ScrollReveal key={i} delay={0.1 + i * 0.1} direction="right">
                                         <li className="flex items-center gap-4 group">
                                             <div className="w-8 h-8 rounded-full bg-green-50 flex items-center justify-center flex-shrink-0 group-hover:bg-green-100 transition-colors">
@@ -76,7 +72,7 @@ export default function QuoteClient() {
                             {/* Trust Indicator */}
                             <ScrollReveal delay={0.5}>
                                 <div className="pt-8 border-t border-slate-100">
-                                    <p className="text-sm text-slate-500 font-bold uppercase tracking-wider mb-4">Trusted By Leaders</p>
+                                    <p className="text-sm text-slate-500 font-bold uppercase tracking-wider mb-4">{t.quote.trusted}</p>
                                     <div className="flex gap-6 opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
                                         <div className="h-8 w-24 bg-slate-200 rounded animate-pulse" />
                                         <div className="h-8 w-24 bg-slate-200 rounded animate-pulse delay-75" />
