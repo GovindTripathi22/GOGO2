@@ -29,13 +29,15 @@ export function middleware(request: NextRequest) {
     // =========================================================
     const { pathname } = request.nextUrl;
 
-    if (pathname.startsWith('/admin')) {
-        // PERMANENT: Admin Panel Disabled for now
-        // Redirect all admin traffic to home
+    // NOTE: Admin panel is now OPEN (no auth required)
+    // To re-enable protection, uncomment the block below:
+    /*
+    if (pathname.startsWith('/admin') && !pathname.startsWith('/admin/login')) {
         const url = request.nextUrl.clone();
-        url.pathname = '/';
+        url.pathname = '/admin/login';
         return NextResponse.redirect(url);
     }
+    */
 
     const response = NextResponse.next({
         request: {

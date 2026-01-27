@@ -1,6 +1,6 @@
 export const fuelPrices = {
-    super: 650,
-    diesel: 700,
+    super: 695,
+    diesel: 720,
     currency: "FCFA"
 };
 

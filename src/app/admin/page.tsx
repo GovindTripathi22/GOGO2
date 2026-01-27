@@ -16,12 +16,12 @@ export default function AdminGateway() {
             <header className="bg-white border-b border-slate-200 px-6 py-4">
                 <div className="max-w-5xl mx-auto flex justify-between items-center">
                     <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 bg-slate-900 rounded-full flex items-center justify-center">
+                        <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center overflow-hidden border-2 border-primary/20">
                             <Image
                                 src="/assets/images/logo-main.png"
                                 alt="GoGo"
-                                width={24}
-                                height={24}
+                                width={36}
+                                height={36}
                                 className="object-contain"
                             />
                         </div>

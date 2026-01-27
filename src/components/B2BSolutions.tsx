@@ -1,6 +1,6 @@
 "use client";
 
-import { Fuel, Wrench, BarChart3, ArrowUpRight } from "lucide-react";
+import { Fuel, Wrench, BarChart3, FileText, ArrowUpRight } from "lucide-react";
 import { useLang } from "@/context/LangContext";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 
@@ -11,30 +11,39 @@ export default function B2BSolutions() {
     const services = [
         {
             icon: Fuel,
-            title: isFr ? "Ravitaillement à la Demande" : "On-Demand Fueling",
+            title: isFr ? "Livraison de carburant" : "Fuel Delivery",
             description: isFr
-                ? "Économisez le temps de vos employés en faisant ravitailler votre flotte par nos camions certifiés pendant la nuit."
-                : "Save employee time and reduce mileage by having our certified trucks refuel your fleet overnight or during downtime.",
+                ? "Diesel et Super livrés directement à votre flotte ou site. Service rapide et sécurisé."
+                : "Diesel and Super fuel delivered directly to your fleet or site. Fast and secure service.",
             highlighted: true,
             delay: 0.2
         },
         {
             icon: Wrench,
-            title: isFr ? "Maintenance Mobile" : "Mobile Maintenance",
+            title: isFr ? "Livraison de lubrifiants" : "Lubricants Delivery",
             description: isFr
-                ? "Des vidanges aux remplacements de batterie, nous amenons l'atelier à votre parking."
-                : "From oil changes to battery replacements, we bring the workshop to your parking lot, minimizing vehicle downtime.",
+                ? "Huiles moteur, fluides de transmission et lubrifiants industriels livrés sur demande."
+                : "Engine oils, transmission fluids, and industrial lubricants delivered on demand.",
+            highlighted: false,
+            delay: 0.3
+        },
+        {
+            icon: BarChart3,
+            title: isFr ? "Gestion de votre consommation" : "Consumption Management",
+            description: isFr
+                ? "Suivez et optimisez la consommation de carburant de votre flotte en temps réel."
+                : "Track and optimize your fleet's fuel consumption in real-time.",
             highlighted: false,
             delay: 0.4
         },
         {
-            icon: BarChart3,
-            title: isFr ? "Analyses Avancées" : "Advanced Analytics",
+            icon: FileText,
+            title: isFr ? "Reportings" : "Reporting",
             description: isFr
-                ? "Suivez la consommation de carburant, l'empreinte carbone et les dépenses en temps réel."
-                : "Track fuel consumption, carbon footprint, and spending in real-time with our comprehensive dashboard.",
+                ? "Rapports détaillés sur les dépenses, la consommation et l'efficacité de votre flotte."
+                : "Detailed reports on spending, consumption, and fleet efficiency.",
             highlighted: false,
-            delay: 0.6
+            delay: 0.5
         },
     ];
 
