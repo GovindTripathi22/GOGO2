@@ -139,6 +139,14 @@ export const dictionary = {
             cookies: "Cookie Policy",
             copyright: "All rights reserved.",
         },
+        validation: {
+            companyNameRequired: "Company name is required",
+            industryRequired: "Please select an industry",
+            fleetSizeRequired: "Please select fleet size",
+            productNeedsRequired: "Select at least one product",
+            invalidEmail: "Invalid email address",
+            phoneRequired: "Phone number is required",
+        },
         quote: {
             backToHome: "Back to Home",
             title: "Fuel your fleet efficiently in",
@@ -243,6 +251,8 @@ export const dictionary = {
         },
         aboutPage: {
             ourStory: "Our Story",
+            ourMission: "Our Mission",
+            ourVision: "Our Vision",
             heroTitle: "YOUR FUEL,",
             heroSuffix: "ANYWHERE AND AT ANY TIME",
             heroDesc: "GoGo is our response to the promise of African ingenuity: using technology to solve our own daily challenges. We don’t just deliver fuel; we deliver time and peace of mind.",
@@ -434,6 +444,14 @@ export const dictionary = {
             cookies: "Politique de Cookies",
             copyright: "Tous droits réservés.",
         },
+        validation: {
+            companyNameRequired: "Le nom de l'entreprise est requis",
+            industryRequired: "Veuillez sélectionner un secteur",
+            fleetSizeRequired: "Veuillez sélectionner la taille de la flotte",
+            productNeedsRequired: "Sélectionnez au moins un produit",
+            invalidEmail: "Adresse e-mail invalide",
+            phoneRequired: "Le numéro de téléphone est requis",
+        },
         quote: {
             backToHome: "Retour à l'Accueil",
             title: "Alimentez votre flotte efficacement au",
@@ -533,6 +551,8 @@ export const dictionary = {
         },
         aboutPage: {
             ourStory: "Notre Histoire",
+            ourMission: "Notre Mission",
+            ourVision: "Notre Vision",
             heroTitle: "VOTRE CARBURANT,",
             heroSuffix: "PARTOUT ET À TOUT MOMENT",
             heroDesc: "GoGo est notre réponse à la promesse du génie africain : utiliser la technologie pour résoudre nos propres défis quotidiens. Nous ne livrons pas seulement du carburant ; nous livrons du temps et de la tranquillité d'esprit.",

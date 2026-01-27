@@ -10,6 +10,7 @@ type TranslationType = typeof dictionary.en | typeof dictionary.fr;
 interface LangContextType {
     lang: Lang;
     toggleLang: () => void;
+    setLang: (lang: Lang) => void;
     t: TranslationType;
 }
 
@@ -48,7 +49,7 @@ export function LangProvider({ children }: { children: ReactNode }) {
     }, [lang]);
 
     return (
-        <LangContext.Provider value={{ lang, toggleLang, t }}>
+        <LangContext.Provider value={{ lang, toggleLang, setLang, t }}>
             {children}
         </LangContext.Provider>
     );

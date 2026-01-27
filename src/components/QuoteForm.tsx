@@ -5,23 +5,20 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { submitQuote } from "@/app/actions";
 import { trackLeadConversion } from "@/lib/analytics";
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { Loader2, CheckCircle } from "lucide-react";
 import { useLang } from "@/context/LangContext";
 import ReCAPTCHA from "react-google-recaptcha";
 
-// Client-side schema mirroring server-side
-const formSchema = z.object({
-    companyName: z.string().min(2, "Company name is required"),
-    industry: z.string().min(1, "Please select an industry"),
-    fleetSize: z.string().min(1, "Please select fleet size"),
-    productNeeds: z.array(z.string()).min(1, "Select at least one product"),
-    serviceInterests: z.array(z.string()).optional(),
-    email: z.string().email("Invalid email address"),
-    phone: z.string().min(8, "Phone number is required"),
-});
-
-type FormData = z.infer<typeof formSchema>;
+type FormData = {
+    companyName: string;
+    industry: string;
+    fleetSize: string;
+    productNeeds: string[];
+    serviceInterests?: string[];
+    email: string;
+    phone: string;
+};
 
 export default function QuoteForm() {
     const { t } = useLang();
@@ -29,6 +26,17 @@ export default function QuoteForm() {
     const [submitted, setSubmitted] = useState(false);
     const [serverError, setServerError] = useState<string | null>(null);
     const [captchaToken, setCaptchaToken] = useState<string | null>(null);
+
+    // Create schema with translated messages
+    const formSchema = useMemo(() => z.object({
+        companyName: z.string().min(2, t.validation.companyNameRequired),
+        industry: z.string().min(1, t.validation.industryRequired),
+        fleetSize: z.string().min(1, t.validation.fleetSizeRequired),
+        productNeeds: z.array(z.string()).min(1, t.validation.productNeedsRequired),
+        serviceInterests: z.array(z.string()).optional(),
+        email: z.string().email(t.validation.invalidEmail),
+        phone: z.string().min(8, t.validation.phoneRequired),
+    }), [t.validation]);
 
     const {
         register,

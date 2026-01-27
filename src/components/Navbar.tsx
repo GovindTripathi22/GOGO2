@@ -67,10 +67,10 @@ export default function Navbar() {
                         <span className="h-4 w-px bg-slate-300"></span>
                         <button
                             onClick={toggleLang}
-                            className="text-sm font-bold text-slate-900 hover:text-primary transition-colors min-h-[44px] flex items-center"
+                            className="text-sm font-bold text-slate-900 hover:text-accent transition-colors min-h-[44px] flex items-center gap-1"
                             aria-label="Switch Language"
                         >
-                            {lang === "en" ? "EN" : "FR"} | {lang === "en" ? "FR" : "EN"}
+                            {lang === "en" ? "🇬🇧 EN" : "🇫🇷 FR"} | {lang === "en" ? "🇫🇷 FR" : "🇬🇧 EN"}
                         </button>
                     </div>
 

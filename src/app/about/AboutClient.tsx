@@ -74,13 +74,13 @@ export default function AboutClient() {
                     <div className="grid md:grid-cols-2 gap-12">
                         <ScrollReveal direction="left" delay={0.1} className="h-full">
                             <div className="bg-slate-50 rounded-3xl p-8 border border-slate-100 h-full flex flex-col">
-                                <h2 className="text-2xl font-bold text-slate-900 mb-4">Our Mission</h2>
+                                <h2 className="text-2xl font-bold text-slate-900 mb-4">{t.aboutPage.ourMission}</h2>
                                 <p className="text-slate-600 leading-relaxed flex-1">{t.aboutPage.mission}</p>
                             </div>
                         </ScrollReveal>
                         <ScrollReveal direction="right" delay={0.2} className="h-full">
                             <div className="bg-primary/10 rounded-3xl p-8 border border-primary/20 h-full flex flex-col">
-                                <h2 className="text-2xl font-bold text-slate-900 mb-4">Our Vision</h2>
+                                <h2 className="text-2xl font-bold text-slate-900 mb-4">{t.aboutPage.ourVision}</h2>
                                 <p className="text-slate-600 leading-relaxed flex-1">{t.aboutPage.vision}</p>
                             </div>
                         </ScrollReveal>

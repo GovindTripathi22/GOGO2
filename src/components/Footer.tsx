@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useLang } from "@/context/LangContext";
 
 export default function Footer() {
-    const { t } = useLang();
+    const { t, lang, setLang } = useLang();
 
     return (
         <footer className="bg-white border-t border-slate-100 pt-16 pb-8">
@@ -112,9 +112,19 @@ export default function Footer() {
                 {/* Bottom Bar */}
                 <div className="border-t border-slate-100 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
                     <p className="text-xs text-slate-500">© 2024 GoGo Technologies Inc. {t.footer.copyright}</p>
-                    <div className="flex gap-6 items-center">
-                        <span className="text-xs text-slate-500">English</span>
-                        <span className="text-xs text-slate-500">Français</span>
+                    <div className="flex gap-4 items-center">
+                        <button
+                            onClick={() => setLang("en")}
+                            className={`text-xs transition-colors ${lang === "en" ? "text-primary font-semibold" : "text-slate-500 hover:text-primary"}`}
+                        >
+                            🇬🇧 English
+                        </button>
+                        <button
+                            onClick={() => setLang("fr")}
+                            className={`text-xs transition-colors ${lang === "fr" ? "text-primary font-semibold" : "text-slate-500 hover:text-primary"}`}
+                        >
+                            🇫🇷 Français
+                        </button>
                         <Link href="/admin" className="text-xs text-slate-400 hover:text-primary transition-colors">Staff</Link>
                     </div>
                 </div>
