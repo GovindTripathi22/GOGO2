@@ -115,15 +115,17 @@ export default function Footer() {
                     <div className="flex gap-4 items-center">
                         <button
                             onClick={() => setLang("en")}
-                            className={`text-xs transition-colors ${lang === "en" ? "text-primary font-semibold" : "text-slate-500 hover:text-primary"}`}
+                            className={`text-xs transition-colors flex items-center gap-1.5 ${lang === "en" ? "text-primary font-semibold" : "text-slate-500 hover:text-primary"}`}
                         >
-                            🇬🇧 English
+                            <Image src="/assets/icons/flag-uk.png" alt="EN" width={16} height={16} className="rounded-full" />
+                            English
                         </button>
                         <button
                             onClick={() => setLang("fr")}
-                            className={`text-xs transition-colors ${lang === "fr" ? "text-primary font-semibold" : "text-slate-500 hover:text-primary"}`}
+                            className={`text-xs transition-colors flex items-center gap-1.5 ${lang === "fr" ? "text-primary font-semibold" : "text-slate-500 hover:text-primary"}`}
                         >
-                            🇫🇷 Français
+                            <Image src="/assets/icons/flag-fr.png" alt="FR" width={16} height={16} className="rounded-full" />
+                            Français
                         </button>
                         <Link href="/admin" className="text-xs text-slate-400 hover:text-primary transition-colors">Staff</Link>
                     </div>

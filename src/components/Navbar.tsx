@@ -67,10 +67,18 @@ export default function Navbar() {
                         <span className="h-4 w-px bg-slate-300"></span>
                         <button
                             onClick={toggleLang}
-                            className="text-sm font-bold text-slate-900 hover:text-accent transition-colors min-h-[44px] flex items-center gap-1"
+                            className="text-sm font-bold text-slate-900 hover:text-accent transition-colors min-h-[44px] flex items-center gap-2"
                             aria-label="Switch Language"
                         >
-                            {lang === "en" ? "🇬🇧 EN" : "🇫🇷 FR"} | {lang === "en" ? "🇫🇷 FR" : "🇬🇧 EN"}
+                            <span className="flex items-center gap-1">
+                                <Image src="/assets/icons/flag-uk.png" alt="EN" width={20} height={20} className="rounded-full" />
+                                <span className={lang === "en" ? "font-bold" : "opacity-60"}>EN</span>
+                            </span>
+                            <span className="text-slate-400">|</span>
+                            <span className="flex items-center gap-1">
+                                <Image src="/assets/icons/flag-fr.png" alt="FR" width={20} height={20} className="rounded-full" />
+                                <span className={lang === "fr" ? "font-bold" : "opacity-60"}>FR</span>
+                            </span>
                         </button>
                     </div>
 
