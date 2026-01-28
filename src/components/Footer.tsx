@@ -20,7 +20,7 @@ export default function Footer() {
                                     alt="GoGo"
                                     width={40}
                                     height={40}
-                                    className="object-cover w-full h-full rounded-full"
+                                    className="object-contain w-full h-full p-0.5"
                                 />
                             </div>
                             <span className="text-xl font-extrabold text-slate-900">GoGo</span>

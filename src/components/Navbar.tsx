@@ -35,7 +35,7 @@ export default function Navbar() {
                                 alt="GoGo Imperial Energy Logo"
                                 width={40}
                                 height={40}
-                                className="object-cover w-full h-full rounded-full"
+                                className="object-contain w-full h-full p-0.5"
                             />
                         </div>
                         <span className="text-2xl font-extrabold tracking-tight text-slate-900">GoGo</span>
