@@ -8,7 +8,14 @@ import jwt from 'jsonwebtoken';
 import bcrypt from 'bcryptjs';
 import { query } from './db';
 
-const JWT_SECRET = process.env.JWT_SECRET || 'gogo-secret-key-change-this';
+// Lazy getter for JWT_SECRET to avoid build-time evaluation
+function getJwtSecret(): string {
+    const secret = process.env.JWT_SECRET;
+    if (!secret && process.env.NODE_ENV === 'production') {
+        throw new Error('🔐 CRITICAL: JWT_SECRET environment variable must be set in production!');
+    }
+    return secret || 'dev-only-insecure-secret-do-not-use-in-prod';
+}
 const SESSION_EXPIRY_HOURS = 24;
 
 // Simple in-memory rate limiting (for single instance deployment)
@@ -108,7 +115,7 @@ export async function loginWithPassword(email: string, password: string): Promis
     // 3. Create Session Token
     const sessionToken = jwt.sign(
         { email: user.email, role: user.role, type: 'admin_session' },
-        JWT_SECRET,
+        getJwtSecret(),
         { expiresIn: `${SESSION_EXPIRY_HOURS}h` }
     );
 
@@ -121,7 +128,7 @@ export async function loginWithPassword(email: string, password: string): Promis
  */
 export async function verifySession(token: string): Promise<UserSession | null> {
     try {
-        const decoded = jwt.verify(token, JWT_SECRET) as { type: string; email: string; role: string };
+        const decoded = jwt.verify(token, getJwtSecret()) as { type: string; email: string; role: string };
         if (decoded.type !== 'admin_session') return null;
 
         // Optional: Check if user still exists / hasn't been banned
