@@ -43,6 +43,6 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# User protected folders (Commented out to include in repo per user request)
-# .agent/
-# documents/
+# User protected folders
+.agent/
+documents/
